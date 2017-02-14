@@ -1,5 +1,6 @@
+# Created on: February 13, 2017
+# @author: Jeromy Swann
 import urllib
-import ast
 
 def convertString2Dictionary(inputString = ""):
     errorDict = {'error':'true'}
