@@ -254,16 +254,16 @@ class SampleTest(unittest.TestCase):
 
     def test500_010ShouldCalculateNominalCaseF2(self):
         mySample = SM.Sample(self.nominalN)
-        self.assertAlmostEquals(mySample.integrate(0.0, self.nominalT, mySample.getN(), mySample.f2), 1/2, 3)
+        self.assertAlmostEquals(mySample.integrate(0.0, self.nominalT, mySample.getN(), mySample.f2), 1/2, 4)
 
     def test500_020ShouldCalculateNominalCaseF3(self):
         mySample = SM.Sample(self.nominalN)
-        self.assertAlmostEquals(mySample.integrate(0.0, self.nominalT, mySample.getN(), mySample.f3), 1/3, 3)
+        self.assertAlmostEquals(mySample.integrate(0.0, self.nominalT, mySample.getN(), mySample.f3), 1/3, 4)
 
     def test500_030ShouldCalculateNominalCaseF4(self):
         mySample = SM.Sample(self.nominalN)
-        self.assertAlmostEquals(mySample.integrate(0.0, self.nominalT, mySample.getN(), mySample.f4), 1/7, 3)
+        self.assertAlmostEquals(mySample.integrate(0.0, self.nominalT, mySample.getN(), mySample.f4), 1/7, 4)
 
     def test500_040ShouldCalculateNominalCaseF5(self):
         mySample = SM.Sample(self.nominalN)
-        self.assertAlmostEquals(mySample.integrate(0.0, self.nominalT, mySample.getN(), mySample.f5), 1/101, 3)
+        self.assertAlmostEquals(mySample.integrate(0.0, self.nominalT, mySample.getN(), mySample.f5), 1/101, 4)
