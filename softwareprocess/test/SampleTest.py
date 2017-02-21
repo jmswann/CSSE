@@ -234,4 +234,24 @@ class SampleTest(unittest.TestCase):
     def test400_020_ShouldCalculateF(self):
         mySample = SM.Sample(self.nominalN)
         self.assertAlmostEquals(mySample.f(1, 5), 0.578703704)
-        
+
+# 500 integrate
+# Analysis
+#    inputs
+#        lowBound -> float
+#        highBound -> float
+#        n -> numeric mandatory validated
+#        f -> function
+#    outputs
+#        float
+# Happy path
+#    nominal case:  f(x) = x
+#    nominal case:  f(x) = x^2
+#    nominal case:  f(x) = x^6
+#    nominal case:  f(x) = x^100
+# Sad path
+#            none ... highBound and n are pre-validated
+
+    def test500_010ShouldCalculateNominalCaseF2(self):
+        mySample = SM.Sample(self.nominalN)
+        self.assertAlmostEquals(mySample.integrate(0.0, self.nominalT, mySample.getN(), mySample.f2), )
