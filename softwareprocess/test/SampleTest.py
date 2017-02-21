@@ -254,4 +254,4 @@ class SampleTest(unittest.TestCase):
 
     def test500_010ShouldCalculateNominalCaseF2(self):
         mySample = SM.Sample(self.nominalN)
-        self.assertAlmostEquals(mySample.integrate(0.0, self.nominalT, mySample.getN(), mySample.f2), )
+        self.assertAlmostEquals(mySample.integrate(0.0, self.nominalT, mySample.getN(), mySample.f2), 1/2, 3)
