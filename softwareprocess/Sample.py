@@ -77,7 +77,9 @@ class Sample(object):
         return u**100
 
     def integrate(self, lowBound, highBound, n, f):
-        return 1/2
+        #return 1.0/2
+        epsilon = 0.001
+        
         
         
     
