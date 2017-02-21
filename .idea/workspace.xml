@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d2d3612e-c22a-4f2c-b068-990cf9ec612f" name="Default" comment="Initial commit for Assignment 3">
+    <list default="true" id="d2d3612e-c22a-4f2c-b068-990cf9ec612f" name="Default" comment="Commit finished code">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/softwareprocess/Sample.py" afterPath="$PROJECT_DIR$/softwareprocess/Sample.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -420,7 +419,8 @@
     <MESSAGE value="Remove an unnecessary import and add header comments" />
     <MESSAGE value="Fix formatting" />
     <MESSAGE value="Initial commit for Assignment 3" />
-    <option name="LAST_COMMIT_MESSAGE" value="Initial commit for Assignment 3" />
+    <MESSAGE value="Commit finished code" />
+    <option name="LAST_COMMIT_MESSAGE" value="Commit finished code" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
