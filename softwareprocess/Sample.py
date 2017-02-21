@@ -78,7 +78,7 @@ class Sample(object):
 
     def integrate(self, lowBound, highBound, n, f):
         #return 1.0/2
-        epsilon = 0.001
+        epsilon = 0.0001
         simpsonOld = 0.0
         simpsonNew = epsilon
         s = 4
