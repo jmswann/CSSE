@@ -19,19 +19,19 @@ def dispatch(values=None):
         pressure = 1010
         horizon = 'natural'
         x = int(observation.split('d')[0])
-        print x
+        #print x
         y = float(observation.split('d')[1])
-        print y
+        #print y
         observedAngle = x + (y / 60.0)
         observedAngleInRadians = observedAngle * math.pi / 180.0
         dip = (-0.97 * math.sqrt(height)) / 60
         refraction = (-0.00452 * pressure) / (273 + convertFToC(temperature)) / math.tan(observedAngleInRadians)
-        print (-0.00452 * pressure)
-        print (273 + convertFToC(temperature))
-        print math.tan(observedAngleInRadians)
-        print refraction
+        #print (-0.00452 * pressure)
+        #print (273 + convertFToC(temperature))
+        #print math.tan(observedAngleInRadians)
+        #print refraction
         adjustedAltitude = observedAngle + dip + refraction
-        print adjustedAltitude
+        #print adjustedAltitude
         adjustedAltitudeX = int(adjustedAltitude)
         adjustedAltitudeY = round((adjustedAltitude - adjustedAltitudeX) * 60.0, 1)
         adjustedAltitudeString = str(adjustedAltitudeX) + 'd' + str(adjustedAltitudeY)
