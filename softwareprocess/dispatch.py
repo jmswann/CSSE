@@ -18,6 +18,10 @@ def dispatch(values=None):
         temperature = 72
         pressure = 1010
         horizon = 'natural'
+
+        if ('height' in values):
+            height = values['height']
+
         x = int(observation.split('d')[0])
         #print x
         y = float(observation.split('d')[1])
