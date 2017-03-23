@@ -17,6 +17,10 @@ def dispatch(values=None):
             values['error'] = 'no observation is specified'
             return values
         observation = values['observation']
+        if 'd' not in observation:
+            values['error'] = 'bad observation'
+            return values
+
         height = 0
         temperature = 72
         pressure = 1010

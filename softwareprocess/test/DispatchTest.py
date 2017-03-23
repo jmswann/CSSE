@@ -147,7 +147,7 @@ class DispatchTest(unittest.TestCase):
         dict['op'] = 'adjust'
         self.assertEquals(dispatch.dispatch(dict)['error'], 'no observation is specified')
 
-    def test100_150ShouldGiveErrorForObservationWithoutD(self):
+    def test100_160ShouldGiveErrorForObservationWithoutD(self):
         dict = {}
         dict['op'] = 'adjust'
         dict['observation'] = '4530.0'
