@@ -31,6 +31,9 @@ def dispatch(values=None):
         if height < 0:
             values['error'] = 'height out of bounds'
             return values
+        if temperature < -20:
+            values['error'] = 'temperature out of bounds'
+            return values
 
         x = int(observation.split('d')[0])
         y = float(observation.split('d')[1])
