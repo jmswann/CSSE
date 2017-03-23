@@ -23,6 +23,8 @@ def dispatch(values=None):
             height = float(values['height'])
         if ('temperature' in values):
             temperature = int(values['temperature'])
+        if ('pressure' in values):
+            pressure = int(values['pressure'])
 
         x = int(observation.split('d')[0])
         #print x
