@@ -132,5 +132,5 @@ class DispatchTest(unittest.TestCase):
         dict = {}
         dict['op'] = 'adjust'
         dict['observation'] = '45d30.0'
-        dict['temperature'] = '121'
+        dict['pressure'] = '99'
         self.assertEquals(dispatch.dispatch(dict)['error'], 'pressure out of bounds')
