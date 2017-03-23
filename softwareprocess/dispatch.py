@@ -13,6 +13,9 @@ def dispatch(values=None):
 
     #Perform designated function
     if(values['op'] == 'adjust'):
+        if (not('observation' in values)):
+            values['error'] = 'no observation is specified'
+            return values
         observation = values['observation']
         height = 0
         temperature = 72
