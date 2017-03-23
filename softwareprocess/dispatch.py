@@ -28,7 +28,7 @@ def dispatch(values=None):
         #print y
         observedAngle = x + (y / 60.0)
         observedAngleInRadians = observedAngle * math.pi / 180.0
-        dip = (-0.97 * math.sqrt(height)) / 60
+        dip = (-0.97 * math.sqrt(float(height))) / 60
         refraction = (-0.00452 * pressure) / (273 + convertFToC(temperature)) / math.tan(observedAngleInRadians)
         #print (-0.00452 * pressure)
         #print (273 + convertFToC(temperature))
