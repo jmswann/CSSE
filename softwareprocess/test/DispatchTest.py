@@ -62,4 +62,4 @@ class DispatchTest(unittest.TestCase):
         dict['observation'] = '45d30.0'
         dict['height'] = '10'
         dict['temperature'] = '100'
-        self.assertEquals(dispatch.dispatch(dict)['altitude'], '45d26.0')
+        self.assertEquals(dispatch.dispatch(dict)['altitude'], '45d26.1')
