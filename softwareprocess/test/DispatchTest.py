@@ -164,3 +164,10 @@ class DispatchTest(unittest.TestCase):
         dict['op'] = 'adjust'
         dict['observation'] = '45dy.y'
         self.assertEquals(dispatch.dispatch(dict)['error'], 'bad observation')
+
+    def test100_190ShouldGiveErrorForNonNumericHeight(self):
+        dict = {}
+        dict['op'] = 'adjust'
+        dict['observation'] = '45d30.0'
+        dict['height'] = 'blah'
+        self.assertEquals(dispatch.dispatch(dict)['error'], 'non-numeric height')
