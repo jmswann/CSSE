@@ -87,10 +87,16 @@ class DispatchTest(unittest.TestCase):
         dict = {}
         dict['op'] = 'adjust'
         dict['observation'] = '-1d30.0'
-        self.assertEquals(dispatch.dispatch(dict)['error'], 'Observation angle out of bounds')
+        self.assertEquals(dispatch.dispatch(dict)['error'], 'observation angle out of bounds')
 
-    def test100_070ShouldGiveErrorForObservationDegreesBelowBounds(self):
+    def test100_070ShouldGiveErrorForObservationDegreesAboveBounds(self):
         dict = {}
         dict['op'] = 'adjust'
         dict['observation'] = '90d30.0'
-        self.assertEquals(dispatch.dispatch(dict)['error'], 'Observation angle out of bounds')
+        self.assertEquals(dispatch.dispatch(dict)['error'], 'observation angle out of bounds')
+
+    def test100_080ShouldGiveErrorForObservationMinutesBelowBounds(self):
+        dict = {}
+        dict['op'] = 'adjust'
+        dict['observation'] = '90d-1.0'
+        self.assertEquals(dispatch.dispatch(dict)['error'], 'observation angle out of bounds')
