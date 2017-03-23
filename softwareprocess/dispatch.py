@@ -1,3 +1,6 @@
+# dispatch function
+# Jeromy Swann
+
 import math
 
 def dispatch(values=None):
@@ -13,6 +16,9 @@ def dispatch(values=None):
 
     #Perform designated function
     if(values['op'] == 'adjust'):
+        if 'altitude' in values:
+            values['error'] = 'altitude already in dictionary'
+            return values
         if (not('observation' in values)):
             values['error'] = 'no observation is specified'
             return values
@@ -21,6 +27,7 @@ def dispatch(values=None):
             values['error'] = 'bad observation'
             return values
 
+        #default values
         height = 0
         temperature = 72
         pressure = 1010
@@ -68,7 +75,7 @@ def dispatch(values=None):
         except ValueError:
             values['error'] = 'bad observation'
             return values
-        if x < 0 or x >= 90.0 or y < 0 or y >= 60.0:
+        if x < 0 or x >= 90 or y < 0 or y >= 60.0:
             values['error'] = 'observation angle out of bounds'
             return values
 
@@ -83,7 +90,7 @@ def dispatch(values=None):
         adjustedAltitudeY = round((adjustedAltitude - adjustedAltitudeX) * 60.0, 1)
         adjustedAltitudeString = str(adjustedAltitudeX) + 'd' + str(adjustedAltitudeY)
         values['altitude'] = adjustedAltitudeString
-        return values    #<-------------- replace this with your implementation
+        return values
     elif(values['op'] == 'predict'):
         return values    #This calculation is stubbed out
     elif(values['op'] == 'correct'):

@@ -1,3 +1,6 @@
+# Tests for dispatch function
+# Jeromy Swann
+
 import unittest
 import softwareprocess.dispatch as dispatch
 
@@ -40,7 +43,23 @@ class DispatchTest(unittest.TestCase):
 #                   2nd nominal observation, nominal height, nominal temperature, nominal pressure, missing horizon
 #                   2nd nominal observation, nominal height, nominal temperature, nominal pressure, non-default horizon
 #       Sad Path Analysis:
-#
+#           observation:    degrees below bounds
+#                           degrees above bounds
+#                           minutes below bounds
+#                           minutes above bounds
+#                           missing observation
+#                           missing 'd'
+#                           non-integer degrees
+#                           non-numeric minutes
+#           height:     height below bounds
+#                       non-numeric height
+#           temperature:    temperature below bounds
+#                           temperature above bounds
+#                           non-integer temperature
+#           pressure:   pressure below bounds
+#                       pressure above bounds
+#                       non-integer pressure
+#           horizon:    invalid horizon type
 #
 # Happy Path
     def test100_010ShouldCalculateNominalCaseAllDefault(self):
