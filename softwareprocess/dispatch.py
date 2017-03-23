@@ -46,6 +46,7 @@ def dispatch(values=None):
                 return values
         if ('horizon' in values):
             horizon = values['horizon']
+            if horizon != 'natural'
 
         if height < 0:
             values['error'] = 'height out of bounds'
