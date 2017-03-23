@@ -185,3 +185,10 @@ class DispatchTest(unittest.TestCase):
         dict['observation'] = '45d30.0'
         dict['pressure'] = 'blah'
         self.assertEquals(dispatch.dispatch(dict)['error'], 'non-integer pressure')
+
+    def test100_220ShouldGiveErrorForInvalidHorizon(self):
+        dict = {}
+        dict['op'] = 'adjust'
+        dict['observation'] = '45d30.0'
+        dict['horizon'] = 'blah'
+        self.assertEquals(dispatch.dispatch(dict)['error'], 'invalid horizon type')

@@ -39,7 +39,11 @@ def dispatch(values=None):
                 values['error'] = 'non-integer temperature'
                 return values
         if ('pressure' in values):
-            pressure = int(values['pressure'])
+            try:
+                pressure = int(values['pressure'])
+            except ValueError:
+                values['error'] = 'non-integer pressure'
+                return values
         if ('horizon' in values):
             horizon = values['horizon']
 
