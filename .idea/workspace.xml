@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d2d3612e-c22a-4f2c-b068-990cf9ec612f" name="Default" comment="Commit finished code">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/softwareprocess/dispatch.py" afterPath="$PROJECT_DIR$/softwareprocess/dispatch.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/softwareprocess/test/DispatchTest.py" afterPath="$PROJECT_DIR$/softwareprocess/test/DispatchTest.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -29,7 +29,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="dispatch.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="dispatch.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/softwareprocess/dispatch.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="187">
@@ -39,11 +39,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DispatchTest.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="DispatchTest.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/softwareprocess/test/DispatchTest.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="350">
-              <caret line="121" column="72" lean-forward="false" selection-start-line="121" selection-start-column="72" selection-end-line="121" selection-end-column="72" />
+            <state relative-caret-position="333">
+              <caret line="127" column="34" lean-forward="false" selection-start-line="127" selection-start-column="34" selection-end-line="127" selection-end-column="34" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
               </folding>
@@ -81,8 +81,8 @@
         <option value="$PROJECT_DIR$/softwareprocess/Sample.py" />
         <option value="$PROJECT_DIR$/softwareprocess/convertString2Dictionary.py" />
         <option value="$PROJECT_DIR$/softwareprocess/test/dispatchTest.py" />
-        <option value="$PROJECT_DIR$/softwareprocess/test/DispatchTest.py" />
         <option value="$PROJECT_DIR$/softwareprocess/dispatch.py" />
+        <option value="$PROJECT_DIR$/softwareprocess/test/DispatchTest.py" />
       </list>
     </option>
   </component>
@@ -367,9 +367,6 @@
     <option name="remove_strategy" value="false" />
   </component>
   <component name="TestHistory">
-    <history-entry file="All_Tests_(TDD) - 2017.03.22 at 19h 31m 07s.xml">
-      <configuration name="All Tests (TDD)" configurationId="tests" />
-    </history-entry>
     <history-entry file="All_Tests_(TDD) - 2017.03.22 at 19h 31m 56s.xml">
       <configuration name="All Tests (TDD)" configurationId="tests" />
     </history-entry>
@@ -395,6 +392,9 @@
       <configuration name="All Tests (TDD)" configurationId="tests" />
     </history-entry>
     <history-entry file="All_Tests_(TDD) - 2017.03.22 at 19h 54m 17s.xml">
+      <configuration name="All Tests (TDD)" configurationId="tests" />
+    </history-entry>
+    <history-entry file="All_Tests_(TDD) - 2017.03.22 at 19h 55m 02s.xml">
       <configuration name="All Tests (TDD)" configurationId="tests" />
     </history-entry>
   </component>
@@ -557,21 +557,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/softwareprocess/test/DispatchTest.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="350">
-          <caret line="121" column="72" lean-forward="false" selection-start-line="121" selection-start-column="72" selection-end-line="121" selection-end-column="72" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/softwareprocess/dispatch.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
           <caret line="35" column="25" lean-forward="false" selection-start-line="35" selection-start-column="25" selection-end-line="35" selection-end-column="25" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/softwareprocess/test/DispatchTest.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="333">
+          <caret line="127" column="34" lean-forward="false" selection-start-line="127" selection-start-column="34" selection-end-line="127" selection-end-column="34" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

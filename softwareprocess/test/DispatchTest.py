@@ -120,3 +120,10 @@ class DispatchTest(unittest.TestCase):
         dict['observation'] = '45d30.0'
         dict['temperature'] = '-21'
         self.assertEquals(dispatch.dispatch(dict)['error'], 'temperature out of bounds')
+
+    def test100_120ShouldGiveErrorForTemperatureAboutBounds(self):
+        dict = {}
+        dict['op'] = 'adjust'
+        dict['observation'] = '45d30.0'
+        dict['temperature'] = '121'
+        self.assertEquals(dispatch.dispatch(dict)['error'], 'temperature out of bounds')
