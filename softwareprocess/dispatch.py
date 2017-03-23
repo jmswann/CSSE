@@ -29,24 +29,18 @@ def dispatch(values=None):
             horizon = values['horizon']
 
         x = int(observation.split('d')[0])
-        #print x
         y = float(observation.split('d')[1])
-        #print y
-        if x < 0 or x >= 90 or y < 0:
+        if x < 0 or x >= 90.0 or y < 0 or y >= 60.0:
             values['error'] = 'observation angle out of bounds'
             return values
+
         observedAngle = x + (y / 60.0)
         observedAngleInRadians = observedAngle * math.pi / 180.0
         dip = 0
         if (horizon == 'natural'):
             dip = (-0.97 * math.sqrt(height)) / 60
         refraction = (-0.00452 * pressure) / (273 + convertFToC(temperature)) / math.tan(observedAngleInRadians)
-        #print (-0.00452 * pressure)
-        #print (273 + convertFToC(temperature))
-        #print math.tan(observedAngleInRadians)
-        #print refraction
         adjustedAltitude = observedAngle + dip + refraction
-        #print adjustedAltitude
         adjustedAltitudeX = int(adjustedAltitude)
         adjustedAltitudeY = round((adjustedAltitude - adjustedAltitudeX) * 60.0, 1)
         adjustedAltitudeString = str(adjustedAltitudeX) + 'd' + str(adjustedAltitudeY)
