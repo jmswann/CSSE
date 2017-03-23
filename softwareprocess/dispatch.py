@@ -45,6 +45,7 @@ def dispatch(values=None):
             values['error'] = 'pressure out of bounds'
             return values
 
+        x = 0
         try:
             x = int(observation.split('d')[0])
         except ValueError:
