@@ -28,6 +28,10 @@ def dispatch(values=None):
         if ('horizon' in values):
             horizon = values['horizon']
 
+        if height < 0:
+            values['error'] = 'height out of bounds'
+            return values
+
         x = int(observation.split('d')[0])
         y = float(observation.split('d')[1])
         if x < 0 or x >= 90.0 or y < 0 or y >= 60.0:
