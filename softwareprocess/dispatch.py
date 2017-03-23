@@ -25,6 +25,8 @@ def dispatch(values=None):
             temperature = int(values['temperature'])
         if ('pressure' in values):
             pressure = int(values['pressure'])
+        if ('horizon' in values):
+            horizon = values['horizon']
 
         x = int(observation.split('d')[0])
         #print x
@@ -32,7 +34,9 @@ def dispatch(values=None):
         #print y
         observedAngle = x + (y / 60.0)
         observedAngleInRadians = observedAngle * math.pi / 180.0
-        dip = (-0.97 * math.sqrt(height)) / 60
+        dip = 0
+        if (horizon == 'natural'):
+            dip = (-0.97 * math.sqrt(height)) / 60
         refraction = (-0.00452 * pressure) / (273 + convertFToC(temperature)) / math.tan(observedAngleInRadians)
         #print (-0.00452 * pressure)
         #print (273 + convertFToC(temperature))

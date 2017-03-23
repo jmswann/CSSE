@@ -73,7 +73,7 @@ class DispatchTest(unittest.TestCase):
         dict['pressure'] = '500'
         self.assertEquals(dispatch.dispatch(dict)['altitude'], '45d26.5')
 
-    def test100_040ShouldCalculateNominalCaseAllValidNonDefault(self):
+    def test100_050ShouldCalculateNominalCaseAllValidNonDefault(self):
         dict = {}
         dict['op'] = 'adjust'
         dict['observation'] = '45d30.0'
@@ -82,3 +82,9 @@ class DispatchTest(unittest.TestCase):
         dict['pressure'] = '500'
         dict['horizon'] = 'artificial'
         self.assertEquals(dispatch.dispatch(dict)['altitude'], '45d29.6')
+
+    def test100_060ShouldGiveErrorForObservationDegreesBelowBounds(self):
+        dict = {}
+        dict['op'] = 'adjust'
+        dict['observation'] = '-1d30.0'
+        self.assertEquals(dispatch.dispatch(dict)['error'], 'Observation angle out of bounds')
