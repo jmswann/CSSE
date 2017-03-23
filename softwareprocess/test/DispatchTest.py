@@ -152,3 +152,9 @@ class DispatchTest(unittest.TestCase):
         dict['op'] = 'adjust'
         dict['observation'] = '4530.0'
         self.assertEquals(dispatch.dispatch(dict)['error'], 'bad observation')
+
+    def test100_160ShouldGiveErrorForNonIntegerDegrees(self):
+        dict = {}
+        dict['op'] = 'adjust'
+        dict['observation'] = 'xd30.0'
+        self.assertEquals(dispatch.dispatch(dict)['error'], 'bad observation')

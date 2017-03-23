@@ -45,7 +45,10 @@ def dispatch(values=None):
             values['error'] = 'pressure out of bounds'
             return values
 
-        x = int(observation.split('d')[0])
+        try:
+            x = int(observation.split('d')[0])
+        except ValueError:
+            values['error'] = 'bad observation'
         y = float(observation.split('d')[1])
         if x < 0 or x >= 90.0 or y < 0 or y >= 60.0:
             values['error'] = 'observation angle out of bounds'
