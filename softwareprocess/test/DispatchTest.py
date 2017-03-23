@@ -63,3 +63,12 @@ class DispatchTest(unittest.TestCase):
         dict['height'] = '10'
         dict['temperature'] = '100'
         self.assertEquals(dispatch.dispatch(dict)['altitude'], '45d26.1')
+
+    def test100_040ShouldCalculateNominalCaseNominalHeightNominalTempNominalPressureDefaultHorizon(self):
+        dict = {}
+        dict['op'] = 'adjust'
+        dict['observation'] = '45d30.0'
+        dict['height'] = '10'
+        dict['temperature'] = '100'
+        dict['pressure'] = '500'
+        self.assertEquals(dispatch.dispatch(dict)['altitude'], '45d26.1')
