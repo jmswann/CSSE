@@ -152,4 +152,4 @@ class DispatchTest(unittest.TestCase):
     def test100_160ShouldGiveErrorForMissingObservation(self):
         dict = {}
         dict['op'] = 'adjust'
-        self.assertEquals(dispatch.dispatch(dict)['error'], '')
+        self.assertEquals(dispatch.dispatch(dict)['error'], 'no observation is specified')
