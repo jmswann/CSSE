@@ -32,7 +32,7 @@ def dispatch(values=None):
         #print x
         y = float(observation.split('d')[1])
         #print y
-        if x < 0 or x >= 90:
+        if x < 0 or x >= 90 or y < 0:
             values['error'] = 'observation angle out of bounds'
             return values
         observedAngle = x + (y / 60.0)
