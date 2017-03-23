@@ -33,7 +33,11 @@ def dispatch(values=None):
                 values['error'] = 'non-numeric height'
                 return values
         if ('temperature' in values):
-            temperature = int(values['temperature'])
+            try:
+                temperature = int(values['temperature'])
+            except ValueError:
+                values['error'] = 'non-numeric height'
+                return values
         if ('pressure' in values):
             pressure = int(values['pressure'])
         if ('horizon' in values):
