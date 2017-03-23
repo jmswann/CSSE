@@ -34,6 +34,7 @@ def dispatch(values=None):
         #print y
         if x < 0:
             values['error'] = 'Observation angle out of bounds'
+            return values
         observedAngle = x + (y / 60.0)
         observedAngleInRadians = observedAngle * math.pi / 180.0
         dip = 0
