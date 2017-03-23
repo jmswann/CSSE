@@ -134,3 +134,10 @@ class DispatchTest(unittest.TestCase):
         dict['observation'] = '45d30.0'
         dict['pressure'] = '99'
         self.assertEquals(dispatch.dispatch(dict)['error'], 'pressure out of bounds')
+
+    def test100_140ShouldGiveErrorForPressureAboveBounds(self):
+        dict = {}
+        dict['op'] = 'adjust'
+        dict['observation'] = '45d30.0'
+        dict['pressure'] = '1101'
+        self.assertEquals(dispatch.dispatch(dict)['error'], 'pressure out of bounds')

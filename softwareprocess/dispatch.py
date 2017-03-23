@@ -34,6 +34,9 @@ def dispatch(values=None):
         if temperature < -20 or temperature > 120:
             values['error'] = 'temperature out of bounds'
             return values
+        if pressure < 100:
+            values['error'] = 'pressure out of bounds'
+            return values
 
         x = int(observation.split('d')[0])
         y = float(observation.split('d')[1])
