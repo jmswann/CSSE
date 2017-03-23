@@ -31,7 +31,7 @@ def dispatch(values=None):
         if height < 0:
             values['error'] = 'height out of bounds'
             return values
-        if temperature < -20:
+        if temperature < -20 or temperature > 120:
             values['error'] = 'temperature out of bounds'
             return values
 
