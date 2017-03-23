@@ -46,11 +46,12 @@ def dispatch(values=None):
             return values
 
         x = 0
+        y = 0.0
         try:
             x = int(observation.split('d')[0])
+            y = float(observation.split('d')[1])
         except ValueError:
             values['error'] = 'bad observation'
-        y = float(observation.split('d')[1])
         if x < 0 or x >= 90.0 or y < 0 or y >= 60.0:
             values['error'] = 'observation angle out of bounds'
             return values
