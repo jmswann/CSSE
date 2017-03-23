@@ -158,3 +158,9 @@ class DispatchTest(unittest.TestCase):
         dict['op'] = 'adjust'
         dict['observation'] = 'xd30.0'
         self.assertEquals(dispatch.dispatch(dict)['error'], 'bad observation')
+
+    def test100_180ShouldGiveErrorForNonNumericMinutes(self):
+        dict = {}
+        dict['op'] = 'adjust'
+        dict['observation'] = '45dy.y'
+        self.assertEquals(dispatch.dispatch(dict)['error'], 'bad observation')
