@@ -60,6 +60,7 @@ class DispatchTest(unittest.TestCase):
 #                       pressure above bounds
 #                       non-integer pressure
 #           horizon:    invalid horizon type
+#           altitude:   altitude already present in dictionary
 #
 # Happy Path
     def test100_010ShouldCalculateNominalCaseAllDefault(self):
