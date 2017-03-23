@@ -178,3 +178,10 @@ class DispatchTest(unittest.TestCase):
         dict['observation'] = '45d30.0'
         dict['temperature'] = 'blah'
         self.assertEquals(dispatch.dispatch(dict)['error'], 'non-integer temperature')
+
+    def test100_210ShouldGiveErrorForNonIntegerPressure(self):
+        dict = {}
+        dict['op'] = 'adjust'
+        dict['observation'] = '45d30.0'
+        dict['pressure'] = 'blah'
+        self.assertEquals(dispatch.dispatch(dict)['error'], 'non-integer pressure')
