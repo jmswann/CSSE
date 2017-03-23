@@ -34,7 +34,7 @@ def dispatch(values=None):
         if temperature < -20 or temperature > 120:
             values['error'] = 'temperature out of bounds'
             return values
-        if pressure < 100:
+        if pressure < 100 or pressure > 1100:
             values['error'] = 'pressure out of bounds'
             return values
 
