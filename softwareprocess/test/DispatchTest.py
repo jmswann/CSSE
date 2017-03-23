@@ -192,3 +192,10 @@ class DispatchTest(unittest.TestCase):
         dict['observation'] = '45d30.0'
         dict['horizon'] = 'blah'
         self.assertEquals(dispatch.dispatch(dict)['error'], 'invalid horizon type')
+
+    def test100_230ShouldGiveErrorIfAltitudeAlreadyInDictionary(self):
+        dict = {}
+        dict['op'] = 'adjust'
+        dict['observation'] = '45d30.0'
+        dict['altitude'] = '45d30.0'
+        self.assertEquals(dispatch.dispatch(dict)['error'], 'altitude already in dictionary')

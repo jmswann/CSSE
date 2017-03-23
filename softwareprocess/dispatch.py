@@ -45,8 +45,10 @@ def dispatch(values=None):
                 values['error'] = 'non-integer pressure'
                 return values
         if ('horizon' in values):
-            horizon = values['horizon']
-            if horizon != 'natural'
+            horizon = values['horizon'].lower()
+            if horizon != 'natural' and horizon != 'artificial':
+                values['error'] = 'invalid horizon type'
+                return values
 
         if height < 0:
             values['error'] = 'height out of bounds'
