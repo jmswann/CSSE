@@ -88,3 +88,9 @@ class DispatchTest(unittest.TestCase):
         dict['op'] = 'adjust'
         dict['observation'] = '-1d30.0'
         self.assertEquals(dispatch.dispatch(dict)['error'], 'Observation angle out of bounds')
+
+    def test100_070ShouldGiveErrorForObservationDegreesBelowBounds(self):
+        dict = {}
+        dict['op'] = 'adjust'
+        dict['observation'] = '90d30.0'
+        self.assertEquals(dispatch.dispatch(dict)['error'], 'Observation angle out of bounds')
