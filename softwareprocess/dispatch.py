@@ -20,7 +20,9 @@ def dispatch(values=None):
         horizon = 'natural'
 
         if ('height' in values):
-            height = values['height']
+            height = float(values['height'])
+        if ('temperature' in values):
+            temperature = int(values['temperature'])
 
         x = int(observation.split('d')[0])
         #print x
@@ -28,7 +30,7 @@ def dispatch(values=None):
         #print y
         observedAngle = x + (y / 60.0)
         observedAngleInRadians = observedAngle * math.pi / 180.0
-        dip = (-0.97 * math.sqrt(float(height))) / 60
+        dip = (-0.97 * math.sqrt(height)) / 60
         refraction = (-0.00452 * pressure) / (273 + convertFToC(temperature)) / math.tan(observedAngleInRadians)
         #print (-0.00452 * pressure)
         #print (273 + convertFToC(temperature))
