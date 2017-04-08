@@ -120,9 +120,6 @@ def predict(values):
         return values
     ariesGHADeg = 100
     ariesGHAMin = 42.6
-    #starSHADeg = 270
-    #starSHAMin = 59.1
-    #starDeclination = '7d24.3'
     date = '2001-01-01'
     time = '00:00:00'
     daysPerMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
@@ -159,10 +156,10 @@ def predict(values):
     if ('time' in values):
         time = values['time']
 
-    year = int(date.split('-')[0])
-    month = int(date.split('-')[1])
-    day = int(date.split('-')[2])
-    if year < 2001 or month < 1 or month > 12 or day < 1 or day > daysPerMonth[month]:
+    currentYear = int(date.split('-')[0])
+    currentMonth = int(date.split('-')[1])
+    currentDay = int(date.split('-')[2])
+    if currentYear < 2001 or currentMonth < 1 or currentMonth > 12 or currentDay < 1 or currentDay > daysPerMonth[currentMonth]:
         values['error'] = 'invalid date'
         return values
     hours = int(time.split(':')[0])
@@ -173,18 +170,18 @@ def predict(values):
         return values
 
     daysPassed = 0
-    for i in range(1, month):
+    for i in range(1, currentMonth):
         daysPassed += daysPerMonth[i]
-    daysPassed += (day - 1)
-    if year % 4 == 0 and month > 2:
+    daysPassed += (currentDay - 1)
+    if currentYear % 4 == 0 and currentMonth > 2:
         daysPassed += 1
     seconds += daysPassed * 24 * 60 * 60
     seconds += hours * 60 * 60
     seconds += minutes * 60
 
-    cumulativeProgression = (year - 2001) * -14.31667
+    cumulativeProgression = (currentYear - 2001) * -14.31667
     leapYears = 0
-    for i in range(2001, year, 1):
+    for i in range(2001, currentYear, 1):
         if (i % 4 == 0):
             leapYears += 1
     leapProgression = leapYears * abs(360.0 - (86164.1 / 86400 * 360.0)) * 60.0
