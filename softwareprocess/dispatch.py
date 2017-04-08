@@ -181,8 +181,8 @@ def predict(values):
 
     cumulativeProgression = (currentYear - 2001) * -14.31667
     leapYears = 0
-    for i in range(2001, currentYear, 1):
-        if (i % 4 == 0):
+    for year in range(2001, currentYear, 1):
+        if (year % 4 == 0):
             leapYears += 1
     leapProgression = leapYears * abs(360.0 - (86164.1 / 86400 * 360.0)) * 60.0
     rotationInYear = (seconds / 86164.1) * 360.0 * 60.0
