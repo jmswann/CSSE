@@ -294,3 +294,12 @@ class DispatchTest(unittest.TestCase):
         dict['lat'] = '34d18.6'
         self.assertEquals(dispatch.dispatch(dict)['error'], 'lat already in dictionary')
 
+    def test_200_100ShouldGiveErrorIfDictionaryContainsLong(self):
+        dict = {}
+        dict['op'] = 'predict'
+        dict['body'] = 'Alpheratz'
+        dict['date'] = '2017-01-10'
+        dict['time'] = '08:43:20'
+        dict['long'] = '34d18.6'
+        self.assertEquals(dispatch.dispatch(dict)['error'], 'long already in dictionary')
+
