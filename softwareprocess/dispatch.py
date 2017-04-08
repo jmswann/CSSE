@@ -162,6 +162,7 @@ def predict(values):
     if currentYear < 2001 or currentMonth < 1 or currentMonth > 12 or currentDay < 1 or currentDay > daysPerMonth[currentMonth]:
         values['error'] = 'invalid date'
         return values
+
     hours = int(time.split(':')[0])
     minutes = int(time.split(':')[1])
     seconds = int(time.split(':')[2])
@@ -170,11 +171,12 @@ def predict(values):
         return values
 
     daysPassed = 0
-    for i in range(1, currentMonth):
-        daysPassed += daysPerMonth[i]
+    for month in range(1, currentMonth):
+        daysPassed += daysPerMonth[month]
     daysPassed += (currentDay - 1)
     if currentYear % 4 == 0 and currentMonth > 2:
         daysPassed += 1
+
     seconds += daysPassed * 24 * 60 * 60
     seconds += hours * 60 * 60
     seconds += minutes * 60
