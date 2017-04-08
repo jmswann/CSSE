@@ -244,3 +244,12 @@ class DispatchTest(unittest.TestCase):
         dict['time'] = '03:15:42'
         self.assertEquals(dispatch.dispatch(dict)['long'], '75d53.6')
         self.assertEquals(dispatch.dispatch(dict)['lat'], '7d24.3')
+
+    def test_200_040ShouldCalculateAlpheratzCase20170110At084320(self):
+        dict = {}
+        dict['op'] = 'predict'
+        dict['body'] = 'Alpheratz'
+        dict['date'] = '2017-01-10'
+        dict['time'] = '08:43:20'
+        self.assertEquals(dispatch.dispatch(dict)['long'], '238d34.9')
+        self.assertEquals(dispatch.dispatch(dict)['lat'], '29d10.9')
