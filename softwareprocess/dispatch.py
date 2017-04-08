@@ -92,6 +92,9 @@ def dispatch(values=None):
         values['altitude'] = adjustedAltitudeString
         return values
     elif(values['op'] == 'predict'):
+        if not('body' in values):
+            values['error'] = 'mandatory information is missing'
+            return values
         ariesGHADeg = 100
         ariesGHAMin = 42.6
         #starSHADeg = 270
