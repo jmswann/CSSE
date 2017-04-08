@@ -92,6 +92,18 @@ def dispatch(values=None):
         values['altitude'] = adjustedAltitudeString
         return values
     elif(values['op'] == 'predict'):
+        ariesGHADeg = 100
+        ariesGHAMin = 42.6
+        starSHADeg = 270
+        starSHAMin = 59.1
+        starDeclination = '7d24.3'
+        starGHADeg = ariesGHADeg + starSHADeg
+        starGHAMin = ariesGHAMin + starSHAMin
+        starGHADeg += int(starGHAMin / 60.0)
+        starGHADeg = starGHADeg % 360
+        starGHAMin = starGHAMin % 60
+        values['long'] = str(starGHADeg) + 'd' + str(starGHAMin)
+        values['lat'] = starDeclination
         return values    #This calculation is stubbed out
     elif(values['op'] == 'correct'):
         return values    #This calculation is stubbed out
