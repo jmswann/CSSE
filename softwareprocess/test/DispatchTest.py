@@ -228,7 +228,7 @@ class DispatchTest(unittest.TestCase):
         self.assertEquals(dispatch.dispatch(dict)['long'], '11d41.7')
         self.assertEquals(dispatch.dispatch(dict)['lat'], '7d24.3')
 
-    def test200_020ShouldCalculateBetelgeuseCase2016117DefaultTime(self):
+    def test200_020ShouldCalculateBetelgeuseCase20160101DefaultTime(self):
         dict = {}
         dict['op'] = 'predict'
         dict['body'] = 'Betelgeuse'
@@ -236,3 +236,4 @@ class DispatchTest(unittest.TestCase):
         self.assertEquals(dispatch.dispatch(dict)['long'], '11d3.9')
         self.assertEquals(dispatch.dispatch(dict)['lat'], '7d24.3')
 
+    def test200_030ShouldCalculateBetelgeuseCase2016117

@@ -104,10 +104,10 @@ def dispatch(values=None):
             date = values['date']
         if ('time' in values):
             time = values['time']
-            
-        year = int(values['date'].split('-')[0])
-        month = int(values['date'].split('-')[1])
-        day = int(values['date'].split('-')[2])
+
+        year = int(date.split('-')[0])
+        month = int(date.split('-')[1])
+        day = int(date.split('-')[2])
 
         cumulativeProgression = (year - 2001) * -14.31667
         leapYears = 0
