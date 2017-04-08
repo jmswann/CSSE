@@ -123,7 +123,7 @@ def dispatch(values=None):
                  'altair': ['62d06.9', '8d54.8'], 'peacock': ['53d17.2', '-56d41.0'], 'deneb': ['49d30.7', '45d20.5'],
                  'enif': ['33d45.7', '9d57.0'], 'alnair': ['27d42.0', '-46d53.1'], 'fomalhaut': ['15d22.4', '-29d32.3'],
                  'scheat': ['13d51.8', '28d10.3'], 'markab': ['13d36.7', '15d17.6']}
-        if not(values['body'] in stars):
+        if not(values['body'].lower() in stars):
             values['error'] = 'star not in catalog'
             return values
         starSHA = stars[values['body'].lower()][0]
