@@ -144,6 +144,8 @@ def dispatch(values=None):
         hours = int(time.split(':')[0])
         minutes = int(time.split(':')[1])
         seconds = int(time.split(':')[2])
+        if hours < 0 or hours > 23 or minutes < 0 or minutes > 59 or seconds < 0 or seconds > 59:
+            values['error'] = 'invalid time'
 
         daysPassed = 0
         for i in range(1, month):
