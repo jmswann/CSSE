@@ -277,3 +277,11 @@ class DispatchTest(unittest.TestCase):
         dict['time'] = '08:43:20'
         self.assertEquals(dispatch.dispatch(dict)['error'], 'invalid date')
 
+    def test_200_080ShouldGiveErrorOnInvalidTime(self):
+        dict = {}
+        dict['op'] = 'predict'
+        dict['body'] = 'Alpheratz'
+        dict['date'] = '2017-01-10'
+        dict['time'] = '35:43:20'
+        self.assertEquals(dispatch.dispatch(dict)['error'], 'invalid time')
+
