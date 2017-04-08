@@ -68,4 +68,4 @@ class PredictTest(unittest.TestCase):
         dict['op'] = 'predict'
         dict['body'] = 'Betelgeuse'
         self.assert(dispatch.dispatch(dict)['long'], '11d41.7')
-        self.assert(dispatch.dispatch(dict)['lat'], '7d')
+        self.assert(dispatch.dispatch(dict)['lat'], '7d24.3')
