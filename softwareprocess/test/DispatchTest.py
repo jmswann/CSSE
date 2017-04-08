@@ -285,3 +285,12 @@ class DispatchTest(unittest.TestCase):
         dict['time'] = '35:43:20'
         self.assertEquals(dispatch.dispatch(dict)['error'], 'invalid time')
 
+    def test_200_090ShouldGiveErrorIfDictionaryContainsLat(self):
+        dict = {}
+        dict['op'] = 'predict'
+        dict['body'] = 'Alpheratz'
+        dict['date'] = '2017-01-10'
+        dict['time'] = '08:43:20'
+        dict['lat'] = '34d18.6'
+        self.assertEquals(dispatch.dispatch(dict)['error'], 'lat already in dictionary')
+
