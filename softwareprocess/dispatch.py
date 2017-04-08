@@ -98,6 +98,9 @@ def dispatch(values=None):
         if 'lat' in values:
             values['error'] = 'lat already in dictionary'
             return values
+        if 'long' in values:
+            values['error'] = 'long already in dictionary'
+            return values
         ariesGHADeg = 100
         ariesGHAMin = 42.6
         #starSHADeg = 270
@@ -156,6 +159,8 @@ def dispatch(values=None):
         for i in range(1, month):
             daysPassed += daysPerMonth[i]
         daysPassed += (day - 1)
+        if year % 4 == 0 and month > 2:
+            daysPassed += 1
         seconds += daysPassed * 24 * 60 * 60
         seconds += hours * 60 * 60
         seconds += minutes * 60
