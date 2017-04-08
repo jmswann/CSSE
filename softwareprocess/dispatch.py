@@ -97,6 +97,8 @@ def dispatch(values=None):
         starSHADeg = 270
         starSHAMin = 59.1
         starDeclination = '7d24.3'
+        date = '2001-01-01'
+        time = ''
         year = int(values['date'].split('-')[0])
         month = int(values['date'].split('-')[1])
         day = int(values['date'].split('-')[2])
@@ -116,7 +118,7 @@ def dispatch(values=None):
         starGHADeg += int(starGHAMin / 60.0)
         starGHADeg = starGHADeg % 360
         starGHAMin = starGHAMin % 60
-        values['long'] = str(starGHADeg) + 'd' + str(starGHAMin)
+        values['long'] = str(int(starGHADeg)) + 'd' + str(round(starGHAMin, 1))
         values['lat'] = starDeclination
         return values    #This calculation is stubbed out
     elif(values['op'] == 'correct'):
