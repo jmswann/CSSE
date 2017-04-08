@@ -102,28 +102,17 @@ def dispatch(values=None):
         day = int(values['date'].split('-')[2])
 
         cumulativeProgression = (year - 2001) * -14.31667
-        print cumulativeProgression
         leapYears = 0
         for i in range(2001, year, 1):
             if (i % 4 == 0):
                 leapYears += 1
         leapProgression = leapYears * abs(360.0 - (86164.1 / 86400 * 360.0)) * 60.0
-        print leapProgression
         ariesGHAMin += cumulativeProgression + leapProgression
-        if (ariesGHAMin < 0):
-            ariesGHADeg += math.floor(ariesGHAMin / 60.0)
-            ariesGHAMin = ariesGHAMin % 60
-        else:
-            ariesGHADeg += int(ariesGHAMin / 60.0)
-            ariesGHAMin = ariesGHAMin % 60
-
-        print ariesGHADeg
-        print ariesGHAMin
+        ariesGHADeg += math.floor(ariesGHAMin / 60.0)
+        ariesGHAMin = ariesGHAMin % 60
 
         starGHADeg = ariesGHADeg + starSHADeg
-        print starGHADeg
         starGHAMin = round(ariesGHAMin, 1) + starSHAMin
-        print starGHAMin
         starGHADeg += int(starGHAMin / 60.0)
         starGHADeg = starGHADeg % 360
         starGHAMin = starGHAMin % 60

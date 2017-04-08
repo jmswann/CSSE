@@ -233,6 +233,6 @@ class DispatchTest(unittest.TestCase):
         dict['op'] = 'predict'
         dict['body'] = 'Betelgeuse'
         dict['date'] = '2016-01-17'
-        self.assertEquals(dispatch.dispatch(dict)['long'], '27d27.9')
+        self.assertEquals(dispatch.dispatch(dict)['long'], '11d3.9')
         self.assertEquals(dispatch.dispatch(dict)['lat'], '7d24.3')
 
