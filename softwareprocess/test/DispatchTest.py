@@ -260,3 +260,12 @@ class DispatchTest(unittest.TestCase):
         dict['date'] = '2017-01-10'
         dict['time'] = '08:43:20'
         self.assertEquals(dispatch.dispatch(dict)['error'], 'mandatory information is missing')
+
+    def test_200_060ShouldGiveErrorOnInvalidBody(self):
+        dict = {}
+        dict['op'] = 'predict'
+        dict['body'] = 'pineapple'
+        dict['date'] = '2017-01-10'
+        dict['time'] = '08:43:20'
+        self.assertEquals(dispatch.dispatch(dict)['error'], 'star not in catalog')
+
