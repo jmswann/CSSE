@@ -253,3 +253,10 @@ class DispatchTest(unittest.TestCase):
         dict['time'] = '08:43:20'
         self.assertEquals(dispatch.dispatch(dict)['long'], '238d34.9')
         self.assertEquals(dispatch.dispatch(dict)['lat'], '29d10.9')
+
+    def test_200_050ShouldGiveErrorOnMissingBody(self):
+        dict = {}
+        dict['op'] = 'predict'
+        dict['date'] = '2017-01-10'
+        dict['time'] = '08:43:20'
+        self.assertEquals(dispatch.dispatch(dict)['error'], 'mandatory information is missing')
