@@ -12,7 +12,7 @@ class DispatchTest(unittest.TestCase):
         pass
 # --------------------------------------------------
 # ---- Acceptance Tests
-# 100 dispatch
+# 100 adjust
 #   Desired level of confidence: Equivalence partition analysis
 #   Input-output Analysis
 #       inputs:     values ->   dictionary with key-value pairs as follows:
@@ -219,3 +219,17 @@ class DispatchTest(unittest.TestCase):
         dict['observation'] = '45d30.0'
         dict['altitude'] = '45d30.0'
         self.assertEquals(dispatch.dispatch(dict)['error'], 'altitude already in dictionary')
+
+# 200 predict
+    def test200_010ShouldCalculateBetelgeuseCaseAllDefault(self):
+        dict = {}
+        dict['op'] = 'predict'
+        dict['body'] = 'Betelgeuse'
+        self.assertEquals(dispatch.dispatch(dict)['long'], '11d41.7')
+        self.assertEquals(dispatch.dispatch(dict)['lat'], '7d24.3')
+
+    def test200_020ShouldCalculateBetelgeuseCase2016117DefaultTime(self):
+        dict = {}
+        dict['op'] = 'predict'
+        dict['body'] = 'Betelgeuse'
+        dict['date'] = '2016'
