@@ -272,7 +272,7 @@ class DispatchTest(unittest.TestCase):
     def test_200_070ShouldGiveErrorOnInvalidDate(self):
         dict = {}
         dict['op'] = 'predict'
-        dict['body'] = 'pineapple'
+        dict['body'] = 'Alpheratz'
         dict['date'] = '1995-01-10'
         dict['time'] = '08:43:20'
         self.assertEquals(dispatch.dispatch(dict)['error'], 'invalid date')
