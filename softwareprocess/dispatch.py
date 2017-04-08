@@ -95,6 +95,9 @@ def dispatch(values=None):
         if not('body' in values):
             values['error'] = 'mandatory information is missing'
             return values
+        if 'lat' in values:
+            values['error'] = 'lat already in dictionary'
+            return values
         ariesGHADeg = 100
         ariesGHAMin = 42.6
         #starSHADeg = 270
@@ -141,11 +144,13 @@ def dispatch(values=None):
         day = int(date.split('-')[2])
         if year < 2001 or month < 1 or month > 12 or day < 1 or day > daysPerMonth[month]:
             values['error'] = 'invalid date'
+            return values
         hours = int(time.split(':')[0])
         minutes = int(time.split(':')[1])
         seconds = int(time.split(':')[2])
         if hours < 0 or hours > 23 or minutes < 0 or minutes > 59 or seconds < 0 or seconds > 59:
             values['error'] = 'invalid time'
+            return values
 
         daysPassed = 0
         for i in range(1, month):
