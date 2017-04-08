@@ -98,7 +98,13 @@ def dispatch(values=None):
         starSHAMin = 59.1
         starDeclination = '7d24.3'
         date = '2001-01-01'
-        time = ''
+        time = '00:00:00'
+
+        if ('date' in values):
+            date = values['date']
+        if ('time' in values):
+            time = values['time']
+            
         year = int(values['date'].split('-')[0])
         month = int(values['date'].split('-')[1])
         day = int(values['date'].split('-')[2])
