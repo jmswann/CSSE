@@ -139,6 +139,8 @@ def dispatch(values=None):
         year = int(date.split('-')[0])
         month = int(date.split('-')[1])
         day = int(date.split('-')[2])
+        if year < 2001 or month < 1 or month > 12 or day < 1 or day > daysPerMonth[month]:
+            values['error'] = 'invalid date'
         hours = int(time.split(':')[0])
         minutes = int(time.split(':')[1])
         seconds = int(time.split(':')[2])
