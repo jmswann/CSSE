@@ -99,6 +99,7 @@ def dispatch(values=None):
         starDeclination = '7d24.3'
         date = '2001-01-01'
         time = '00:00:00'
+        daysPerMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
 
         if ('date' in values):
             date = values['date']
@@ -108,6 +109,17 @@ def dispatch(values=None):
         year = int(date.split('-')[0])
         month = int(date.split('-')[1])
         day = int(date.split('-')[2])
+        hours = int(time.split(':')[0])
+        minutes = int(time.split(':')[1])
+        seconds = int(time.split(':')[2])
+
+        daysPassed = 0
+        for i in range(1, month):
+            daysPassed += daysPerMonth[i]
+        daysPassed += (day - 1)
+        seconds += daysPassed * 24 * 60 * 60
+        seconds += hours * 60 * 60
+        seconds += minutes * 60
 
         cumulativeProgression = (year - 2001) * -14.31667
         leapYears = 0
@@ -115,7 +127,8 @@ def dispatch(values=None):
             if (i % 4 == 0):
                 leapYears += 1
         leapProgression = leapYears * abs(360.0 - (86164.1 / 86400 * 360.0)) * 60.0
-        ariesGHAMin += cumulativeProgression + leapProgression
+        rotationInYear = (seconds / 86164.1) * 360.0 * 60.0
+        ariesGHAMin += cumulativeProgression + leapProgression + rotationInYear
         ariesGHADeg += math.floor(ariesGHAMin / 60.0)
         ariesGHAMin = ariesGHAMin % 60
 
