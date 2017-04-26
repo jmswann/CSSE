@@ -215,29 +215,14 @@ def calculateLocalHourAngle(longitude, assumedLongitude):
     assumedLongFloat = convertAngleStringToFloat(assumedLongitude)
     result = longFloat + assumedLongFloat
     resultString = convertAngleFloatToString(result)
-    #longDeg = int(longitude.split('d')[0])
-    #longMin = float(longitude.split('d')[1])
-    #assumedLongDeg = int(assumedLongitude.split('d')[0])
-    #assumedLongMin = float(assumedLongitude.split('d')[1])
-    #resultDeg = (longDeg + assumedLongDeg + int((longMin + assumedLongMin) / 60)) % 360
-    #resultMin = (longMin + assumedLongMin) % 60
-    #resultString = str(resultDeg) + 'd' + str(resultMin)
     return resultString
 
 def calculateIntermediateDistance(latitude, assumedLatitude, lha):
-    latFloat = float(latitude.split('d')[0])
-    if latFloat > 0:
-        latFloat += float(latitude.split('d')[1]) / 60.0
-    else:
-        latFloat -= float(latitude.split('d')[1]) / 60.0
+    latFloat = convertAngleStringToFloat(latitude)
     print latFloat
-    assumedLatFloat = float(assumedLatitude.split('d')[0])
-    if assumedLatFloat > 0:
-        assumedLatFloat += float(assumedLatitude.split('d')[1]) / 60.0
-    else:
-        assumedLatFloat -= float(assumedLatitude.split('d')[1]) / 60.0
+    assumedLatFloat = convertAngleStringToFloat(assumedLatitude)
     print assumedLatFloat
-    lhaFloat = float(lha.split('d')[0]) + float(lha.split('d')[1]) / 60.0
+    lhaFloat = convertAngleStringToFloat(lha)
     print lhaFloat
     intDistance = (math.sin(math.radians(latFloat)) * math.sin(math.radians(assumedLatFloat))) + (math.cos(math.radians(latFloat))
                                         * math.cos(math.radians(assumedLatFloat)) * math.cos(math.radians(lhaFloat)))
@@ -284,7 +269,11 @@ def convertAngleStringToFloat(angleAsString):
     angleDegreesString = angleAsString.split('d')[0]
     angleMinutesString = angleAsString.split('d')[1]
     try:
-        angleDegrees = int(angleDegreesString) + float(angleMinutesString) / 60.0
+        angleDegrees = int(angleDegreesString)
+        if angleDegrees > 0:
+            angleDegrees += float(angleMinutesString) / 60.0
+        else:
+            angleDegrees -= float(angleMinutesString) / 60.0
     except ValueError:
         return -1
     return angleDegrees
