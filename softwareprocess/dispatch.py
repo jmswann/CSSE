@@ -238,17 +238,11 @@ def calculateCorrectedAltitude(intDistance):
     return correctedAltitudeString
 
 def calculateCorrectedDistance(altitude, correctedAltitude):
-    altitudeFloat = float(altitude.split('d')[0]) + float(altitude.split('d')[1]) / 60.0
-    correctedAltitudeFloat = float(correctedAltitude.split('d')[0])
-    if correctedAltitudeFloat > 0:
-        correctedAltitudeFloat += float(correctedAltitude.split('d')[1]) / 60.0
-    else:
-        correctedAltitudeFloat -= float(correctedAltitude.split('d')[1]) / 60.0
+    altitudeFloat = convertAngleStringToFloat(altitude)
+    correctedAltitudeFloat = convertAngleStringToFloat(correctedAltitude)
     result = altitudeFloat - correctedAltitudeFloat
-    resultDeg = int(result) % 360
-    resultMin = round((abs(result) % 1) * 60.0, 1)
-    resultString = str(resultDeg) + 'd' + str(resultMin)
-    return resultString
+    correctedDistanceString = convertAngleFloatToString(result)
+    return correctedDistanceString
 
 def calculateCorrectedAzimuth(latitude, assumedLatitude, intDistance):
     latitudeDeg = convertAngleStringToFloat(latitude)
