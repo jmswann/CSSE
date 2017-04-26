@@ -211,6 +211,9 @@ def correct(values):
     addToDict(values, 'correctedAzimuth', correctedAzimuth)
 
 def calculateLocalHourAngle(longitude, assumedLongitude):
+    longFloat = convertAngleStringToFloat(longitude)
+    assumedLongFloat = convertAngleStringToFloat(assumedLongitude)
+    result = 
     longDeg = int(longitude.split('d')[0])
     longMin = float(longitude.split('d')[1])
     assumedLongDeg = int(assumedLongitude.split('d')[0])
@@ -284,3 +287,8 @@ def convertAngleStringToFloat(angleAsString):
     except ValueError:
         return -1
     return angleDegrees
+
+def convertAngleFloatToString(angleAsFloat):
+    angleDegrees = int(angleAsFloat)
+    angleMinutes = round((abs(angleAsFloat) % 1) * 60.0, 1)
+    angleAsString = str(angleDegrees) + 'd' + str(angleMinutes)
