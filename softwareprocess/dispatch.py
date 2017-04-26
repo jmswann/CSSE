@@ -204,6 +204,12 @@ def predict(values):
 def correct(values):
     if 'lat' not in values or 'long' not in values or 'altitude' not in values or 'assumedLat' not in values or 'assumedLong' not in values:
         addToDict(values, 'error', 'mandatory information is missing')
+        return
+    if 'correctedDistance' in values:
+        addToDict(values, 'error', 'corrected distance already in dictionary')
+    if 'correctedAzimuth' in values:
+        addToDict(values, 'error', 'corrected azimuth already in dictionary')
+    if int(values['lat'].split('d')[0]) > 90
     localHourAngle = calculateLocalHourAngle(values['long'], values['assumedLong'])
     intermediateDistance = calculateIntermediateDistance(values['lat'], values['assumedLat'], localHourAngle)
     correctedAltitude = calculateCorrectedAltitude(intermediateDistance)
@@ -222,11 +228,8 @@ def calculateLocalHourAngle(longitude, assumedLongitude):
 
 def calculateIntermediateDistance(latitude, assumedLatitude, lha):
     latFloat = convertAngleStringToFloat(latitude)
-    print latFloat
     assumedLatFloat = convertAngleStringToFloat(assumedLatitude)
-    print assumedLatFloat
     lhaFloat = convertAngleStringToFloat(lha)
-    print lhaFloat
     intDistance = (math.sin(math.radians(latFloat)) * math.sin(math.radians(assumedLatFloat))) + (math.cos(math.radians(latFloat))
                                         * math.cos(math.radians(assumedLatFloat)) * math.cos(math.radians(lhaFloat)))
     return intDistance

@@ -335,6 +335,16 @@ class DispatchTest(unittest.TestCase):
         dict['assumedLong'] = '74d35.3'
         self.assertEquals(dispatch.dispatch(dict)['error'], 'mandatory information is missing')
 
+    def test300_040ShouldGiveErrorOnOutOfBoundsLat1(self):
+        dict = {}
+        dict['op'] = 'correct'
+        dict['lat'] = '100d20.0'
+        dict['long'] = '95d41.6'
+        dict['altitude'] = '13d42.3'
+        dict['assumedLat'] = '-53d38.4'
+        dict['assumedLong'] = '74d35.3'
+        self.assertEquals(dispatch.dispatch(dict)['error'], 'invalid lat')
+
 # UNIT TESTS
     def test400_010CalculateLHANominal(self):
         self.assertEquals(dispatch.calculateLocalHourAngle('95d41.6', '74d35.3'), '170d16.9')
