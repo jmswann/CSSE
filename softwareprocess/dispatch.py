@@ -235,7 +235,8 @@ def calculateIntermediateDistance(latitude, assumedLatitude, lha):
     print assumedLatFloat
     lhaFloat = float(lha.split('d')[0]) + float(lha.split('d')[1]) / 60.0
     print lhaFloat
-    intDistance = (math.sin(latFloat) * math.sin(assumedLatFloat)) + (math.cos(latFloat) * math.cos(assumedLatFloat) * math.cos(lhaFloat))
+    intDistance = (math.sin(math.radians(latFloat)) * math.sin(math.radians(assumedLatFloat))) + (math.cos(math.radians(latFloat))
+                                        * math.cos(math.radians(assumedLatFloat)) * math.cos(math.radians(lhaFloat)))
     return intDistance
 
 def calculateCorrectedAltitude(intDistance):
