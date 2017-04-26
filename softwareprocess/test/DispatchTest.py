@@ -389,7 +389,7 @@ class DispatchTest(unittest.TestCase):
         dict = {}
         dict['op'] = 'correct'
         dict['lat'] = '30d30.0'
-        dict['long'] = '400d20.0'
+        dict['long'] = '100d90.0'
         dict['altitude'] = '13d42.3'
         dict['assumedLat'] = '-53d38.4'
         dict['assumedLong'] = '74d35.3'
