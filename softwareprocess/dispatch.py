@@ -226,6 +226,7 @@ def validateValues(values):
         return
     latDeg = latMin = 0
     longDeg = longMin = 0
+    altitudeDeg = altitudeMin = 0
     try:
         latDeg = int(values['lat'].split('d')[0])
         latMin = float(values['lat'].split('d')[1])
@@ -243,7 +244,11 @@ def validateValues(values):
     if longDeg >= 360 or longDeg < 0 or longMin >= 60 or longMin < 0:
         addToDict(values, 'error', 'invalid long')
         return
-    altitudeDeg = int(values['altitude'].split('d')[0])
+    try:
+        altitudeDeg = int(values['altitude'].split('d')[0])
+    except ValueError:
+        addtoDict(values, 'error', 'invalid altitude')
+        return
     altitudeMin = float(values['altitude'].split('d')[1])
     if altitudeDeg > 90 or altitudeDeg < 0 or altitudeMin >= 60 or altitudeMin < 0:
         addToDict(values, 'error', 'invalid altitude')
