@@ -425,6 +425,16 @@ class DispatchTest(unittest.TestCase):
         dict['assumedLong'] = '74d35.3'
         self.assertEquals(dispatch.dispatch(dict)['error'], 'invalid altitude')
 
+    def test300_120ShouldGiveErrorOnOutOfBoundsAltitude2(self):
+        dict = {}
+        dict['op'] = 'correct'
+        dict['lat'] = '30d30.0'
+        dict['long'] = '30d30.0'
+        dict['altitude'] = '100d30.0'
+        dict['assumedLat'] = '-53d38.4'
+        dict['assumedLong'] = '74d35.3'
+        self.assertEquals(dispatch.dispatch(dict)['error'], 'invalid altitude')
+
 # UNIT TESTS
     def test400_010CalculateLHANominal(self):
         self.assertEquals(dispatch.calculateLocalHourAngle('95d41.6', '74d35.3'), '170d16.9')

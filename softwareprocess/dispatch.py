@@ -242,6 +242,12 @@ def validateValues(values):
         addToDict(values, 'error', 'invalid long')
     if longDeg >= 360 or longDeg < 0 or longMin >= 60 or longMin < 0:
         addToDict(values, 'error', 'invalid long')
+        return
+    altitudeDeg = int(values['altitude'].split('d')[0])
+    if altitudeDeg > 90 or altitudeDeg < 0:
+        addToDict(values, 'error', 'invalid altitude')
+        return
+
 
 def calculateLocalHourAngle(longitude, assumedLongitude):
     longFloat = convertAngleStringToFloat(longitude)
