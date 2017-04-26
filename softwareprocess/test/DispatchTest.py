@@ -345,6 +345,7 @@ class DispatchTest(unittest.TestCase):
     def test900_010AddToDictNominal(self):
         dict = {}
         dispatch.addToDict(dict, 'key', 'value')
-        self.assertEquals()
+        self.assertIn('key', dict)
+        self.assertEquals(dict['key'], 'value')
 
 
