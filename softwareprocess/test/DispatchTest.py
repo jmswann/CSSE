@@ -385,7 +385,17 @@ class DispatchTest(unittest.TestCase):
         dict['assumedLong'] = '74d35.3'
         self.assertEquals(dispatch.dispatch(dict)['error'], 'invalid long')
 
-    def test300_080ShouldGiveErrorOnOutOfBoundsLong1(self):
+    def test300_080ShouldGiveErrorOnOutOfBoundsLong2(self):
+        dict = {}
+        dict['op'] = 'correct'
+        dict['lat'] = '30d30.0'
+        dict['long'] = '100d90.0'
+        dict['altitude'] = '13d42.3'
+        dict['assumedLat'] = '-53d38.4'
+        dict['assumedLong'] = '74d35.3'
+        self.assertEquals(dispatch.dispatch(dict)['error'], 'invalid long')
+
+    def test300_090ShouldGiveErrorOnNonNumericLong1(self):
         dict = {}
         dict['op'] = 'correct'
         dict['lat'] = '30d30.0'
