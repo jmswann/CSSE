@@ -202,6 +202,8 @@ def predict(values):
     values['lat'] = starDeclination
 
 def correct(values):
+    if 'lat' not in values or 'long' not in values or 'altitude' not in values or 'assumedLat' not in values or 'assumedLong' not in values:
+        addToDict(values, 'error', 'mandatory information is missing')
     localHourAngle = calculateLocalHourAngle(values['long'], values['assumedLong'])
     intermediateDistance = calculateIntermediateDistance(values['lat'], values['assumedLat'], localHourAngle)
     correctedAltitude = calculateCorrectedAltitude(intermediateDistance)
