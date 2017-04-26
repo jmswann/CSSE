@@ -260,12 +260,11 @@ def calculateCorrectedDistance(altitude, correctedAltitude):
     resultString = str(resultDeg) + 'd' + str(resultMin)
     return resultString
 
-def calculateCorrectedAzimuth(latitude, assumedLatitude, intDistance, correctedDistance):
+def calculateCorrectedAzimuth(latitude, assumedLatitude, intDistance):
     latitudeDeg = convertAngleStringToFloat(latitude)
     print latitudeDeg
     assumedLatitudeDeg = convertAngleStringToFloat(assumedLatitude)
     print assumedLatitudeDeg
-    correctedDistanceDeg = convertAngleStringToFloat(correctedDistance)
     result = math.acos((math.sin(math.radians(latitudeDeg)) - (math.sin(math.radians(assumedLatitudeDeg)) * intDistance)) /
                        (math.cos(math.radians(assumedLatitudeDeg)) * math.cos(math.asin(intDistance))))
     result = math.degrees(result)
@@ -287,4 +286,4 @@ def convertAngleStringToFloat(angleAsString):
         angleDegrees = int(angleDegreesString) + float(angleMinutesString) / 60.0
     except ValueError:
         return -1
-    return angleDegrees
+    return angleDegrees % 360
