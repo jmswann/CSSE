@@ -332,3 +332,6 @@ class DispatchTest(unittest.TestCase):
 
     def test500_010CalculateIntermediateDistanceNominal(self):
         self.assertAlmostEquals(dispatch.calculateIntermediateDistance('16d32.3', '-53d38.4', '170d16.9'), -0.789, 3)
+
+    def test600_010CalculateCorrectedAltitudeNominal(self):
+        self.assertEquals(dispatch.calculateCorrectedAltitude(-0.789), '-52d7.8')
