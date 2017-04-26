@@ -355,10 +355,10 @@ class DispatchTest(unittest.TestCase):
         dict['assumedLong'] = '74d35.3'
         self.assertEquals(dispatch.dispatch(dict)['error'], 'invalid lat')
 
-    def test300_050ShouldGiveErrorOnOutOfBoundsLat2(self):
+    def test300_050ShouldGiveErrorOnNonNumericLat1(self):
         dict = {}
         dict['op'] = 'correct'
-        dict['lat'] = '30d90.0'
+        dict['lat'] = 'xd30.0'
         dict['long'] = '95d41.6'
         dict['altitude'] = '13d42.3'
         dict['assumedLat'] = '-53d38.4'
