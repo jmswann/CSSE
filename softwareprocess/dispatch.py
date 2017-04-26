@@ -253,6 +253,9 @@ def validateValues(values):
     if altitudeDeg > 90 or altitudeDeg < 0 or altitudeMin >= 60 or altitudeMin < 0:
         addToDict(values, 'error', 'invalid altitude')
         return
+    assumedLatDeg = int(values['assumedLat'].split('d')[0])
+    if assumedLatDeg >= 90 or assumedLatDeg <= -90:
+        addtoDict(values, 'error', 'invalid assumedLat')
 
 
 def calculateLocalHourAngle(longitude, assumedLongitude):
