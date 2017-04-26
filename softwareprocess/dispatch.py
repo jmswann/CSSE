@@ -255,8 +255,10 @@ def calculateCorrectedDistance(altitude, correctedAltitude):
     else:
         correctedAltitudeFloat -= float(correctedAltitude.split('d')[1]) / 60.0
     result = altitudeFloat - correctedAltitudeFloat
-    resultString =
-    return 0
+    resultDeg = int(result) % 360
+    resultMin = round((abs(result) % 1) * 60.0, 1)
+    resultString = str(resultDeg) + 'd' + str(resultMin)
+    return resultString
 
 def calculateCorrectedAzimuth(latitude, assumedLatitude, intDistance, correctedDistance):
     return 0

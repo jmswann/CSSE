@@ -337,5 +337,8 @@ class DispatchTest(unittest.TestCase):
         self.assertEquals(dispatch.calculateCorrectedAltitude(-0.789410565017742), '-52d7.8')
 
     def test700_010CalculateCorrectedDistanceNominal(self):
-        self.assertEquals(dispatch.calculateCorrectedDistance('13d42.3', '-52d7.8'), -3950)
+        self.assertEquals(dispatch.calculateCorrectedDistance('13d42.3', '-52d7.8'), '65d50.1')
+
+    def test800_010CalculateCorrectedAzimuthNominal(self):
+        self.assertEquals(dispatch.calculateCorrectedAzimuth('16d32.3', '-53d38.4', -0.789410565017742, '65d50.1'), '164d43.1')
 
