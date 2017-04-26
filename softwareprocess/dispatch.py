@@ -223,14 +223,14 @@ def calculateLocalHourAngle(longitude, assumedLongitude):
 def calculateIntermediateDistance(latitude, assumedLatitude, lha):
     latFloat = float(latitude.split('d')[0])
     if latFloat > 0:
-        latFloat += float(latitude.split('d')[1])
+        latFloat += float(latitude.split('d')[1])# / 60.0
     else:
-        latFloat -= float(latitude.split('d')[1])
+        latFloat -= float(latitude.split('d')[1])# / 60.0
     assumedLatFloat = float(assumedLatitude.split('d')[0])
     if assumedLatFloat > 0:
-        assumedLatFloat += float(assumedLatitude.split('d')[1])
+        assumedLatFloat += float(assumedLatitude.split('d')[1])# / 60.0
     else:
-        assumedLatFloat -= float(assumedLatitude.split('d')[1])
+        assumedLatFloat -= float(assumedLatitude.split('d')[1])# / 60.0
     lhaFloat = float(lha.split('d')[0]) + float(lha.split('d')[1])
     intDistance = (math.sin(latFloat) * math.sin(assumedLatFloat)) + (math.cos(latFloat) * math.cos(assumedLatFloat) * math.cos(lhaFloat))
     return intDistance
