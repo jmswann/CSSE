@@ -315,7 +315,7 @@ class DispatchTest(unittest.TestCase):
         self.assertEquals(dispatch.dispatch(dict)['correctedDistance'], '104')
         self.assertEquals(dispatch.dispatch(dict)['correctedAzimuth'], '0d36.8')
 
-        def test300_020ShouldCalculateNominalCase2(self):
+    def test300_020ShouldCalculateNominalCase2(self):
         dict = {}
         dict['op'] = 'correct'
         dict['lat'] = '16d32.3'
@@ -325,3 +325,7 @@ class DispatchTest(unittest.TestCase):
         dict['assumedLong'] = '74d35.3'
         self.assertEquals(dispatch.dispatch(dict)['correctedDistance'], '3950')
         self.assertEquals(dispatch.dispatch(dict)['correctedAzimuth'], '164d42.9')
+
+# UNIT TESTS
+    def test400_010CalculateLHANominal(self):
+        self.assertEquals(dispatch.calculateLocalHourAngle('95d41.6', '74d35.3'), '170d17.0')

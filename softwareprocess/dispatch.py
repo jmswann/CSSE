@@ -22,6 +22,7 @@ def dispatch(values=None):
         predict(values)
         return values    #This calculation is stubbed out
     elif(values['op'] == 'correct'):
+        correct(values)
         return values    #This calculation is stubbed out
     elif(values['op'] == 'locate'):
         return values    #This calculation is stubbed out
@@ -199,3 +200,34 @@ def predict(values):
     starGHAMin = starGHAMin % 60
     values['long'] = str(int(starGHADeg)) + 'd' + str(round(starGHAMin, 1))
     values['lat'] = starDeclination
+
+def correct(values):
+    localHourAngle = calculateLocalHourAngle(values['long'], values['assumedLong'])
+    intermediateDistance = calculateIntermediateDistance(values['lat'], values['assumedLat'], localHourAngle)
+    correctedAltitude = calculateCorrectedAltitude(intermediateDistance)
+    correctedDistance = calculateCorrectedDistance(values['altitude'], correctedAltitude)
+    correctedAzimuth = calculateCorrectedAzimuth(values['lat'], values['assumedLat'], intermediateDistance, correctedDistance)
+    addToDict(values, 'correctedDistance', correctedDistance)
+    addToDict(values, 'correctedAzimuth', correctedAzimuth)
+
+def calculateLocalHourAngle(longitude, assumedLongitude):
+    longDeg = int(longitude.split('d')[0])
+    longMin = float(longitude.split('d')[1])
+    assumedLongDeg = int(assumedLongitude.split('d')[0])
+    assumedLongMin = float(assumedLongitude.split('d')[1])
+    return str(longDeg + assumedLongDeg) + 'd' + str(longMin + assumedLongMin)
+
+def calculateIntermediateDistance(latitude, assumedLatitude, LHA):
+    return 0
+
+def calculateCorrectedAltitude(intDistance):
+    return 0
+
+def calculateCorrectedDistance(altitude, correctedAltitude)
+    return 0
+
+def calculateCorrectedAzimuth(latitude, assumedLatitude, intDistance, correctedDistance):
+    return 0
+
+def addToDict(dict, key, value):
+    dict[key] = value
