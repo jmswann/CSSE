@@ -213,14 +213,15 @@ def correct(values):
 def calculateLocalHourAngle(longitude, assumedLongitude):
     longFloat = convertAngleStringToFloat(longitude)
     assumedLongFloat = convertAngleStringToFloat(assumedLongitude)
-    result = 
-    longDeg = int(longitude.split('d')[0])
-    longMin = float(longitude.split('d')[1])
-    assumedLongDeg = int(assumedLongitude.split('d')[0])
-    assumedLongMin = float(assumedLongitude.split('d')[1])
-    resultDeg = (longDeg + assumedLongDeg + int((longMin + assumedLongMin) / 60)) % 360
-    resultMin = (longMin + assumedLongMin) % 60
-    resultString = str(resultDeg) + 'd' + str(resultMin)
+    result = longFloat + assumedLongFloat
+    resultString = convertAngleFloatToString(result)
+    #longDeg = int(longitude.split('d')[0])
+    #longMin = float(longitude.split('d')[1])
+    #assumedLongDeg = int(assumedLongitude.split('d')[0])
+    #assumedLongMin = float(assumedLongitude.split('d')[1])
+    #resultDeg = (longDeg + assumedLongDeg + int((longMin + assumedLongMin) / 60)) % 360
+    #resultMin = (longMin + assumedLongMin) % 60
+    #resultString = str(resultDeg) + 'd' + str(resultMin)
     return resultString
 
 def calculateIntermediateDistance(latitude, assumedLatitude, lha):
