@@ -202,14 +202,9 @@ def predict(values):
     values['lat'] = starDeclination
 
 def correct(values):
-    if 'lat' not in values or 'long' not in values or 'altitude' not in values or 'assumedLat' not in values or 'assumedLong' not in values:
-        addToDict(values, 'error', 'mandatory information is missing')
+    validateValues(values)
+    if 'error' in values:
         return
-    if 'correctedDistance' in values:
-        addToDict(values, 'error', 'corrected distance already in dictionary')
-    if 'correctedAzimuth' in values:
-        addToDict(values, 'error', 'corrected azimuth already in dictionary')
-    if int(values['lat'].split('d')[0]) > 90
     localHourAngle = calculateLocalHourAngle(values['long'], values['assumedLong'])
     intermediateDistance = calculateIntermediateDistance(values['lat'], values['assumedLat'], localHourAngle)
     correctedAltitude = calculateCorrectedAltitude(intermediateDistance)
@@ -218,6 +213,17 @@ def correct(values):
     correctedDistanceArcMinutes = int(round(convertAngleStringToFloat(correctedDistance) * 60.0, 0))
     addToDict(values, 'correctedDistance', str(correctedDistanceArcMinutes))
     addToDict(values, 'correctedAzimuth', correctedAzimuth)
+
+def validateValues(values):
+    if 'lat' not in values or 'long' not in values or 'altitude' not in values or 'assumedLat' not in values or 'assumedLong' not in values:
+        addToDict(values, 'error', 'mandatory information is missing')
+    if 'correctedDistance' in values:
+        addToDict(values, 'error', 'corrected distance already in dictionary')
+    if 'correctedAzimuth' in values:
+        addToDict(values, 'error', 'corrected azimuth already in dictionary')
+    latDeg = int(values['lat'].split('d')[0])
+    #if latDeg >= 90 or latDeg <= -90:
+        #addToDict(values, 'error', 'invalid lat')
 
 def calculateLocalHourAngle(longitude, assumedLongitude):
     longFloat = convertAngleStringToFloat(longitude)
