@@ -378,12 +378,12 @@ class DispatchTest(unittest.TestCase):
     def test300_070ShouldGiveErrorOnOutOfBoundsLong1(self):
         dict = {}
         dict['op'] = 'correct'
-        dict['lat'] = '100d20.0'
-        dict['long'] = '95d41.6'
+        dict['lat'] = '30d30.0'
+        dict['long'] = '400d20.0'
         dict['altitude'] = '13d42.3'
         dict['assumedLat'] = '-53d38.4'
         dict['assumedLong'] = '74d35.3'
-        self.assertEquals(dispatch.dispatch(dict)['error'], 'invalid lat')
+        self.assertEquals(dispatch.dispatch(dict)['error'], 'invalid long')
 
 # UNIT TESTS
     def test400_010CalculateLHANominal(self):
