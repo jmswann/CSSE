@@ -318,10 +318,10 @@ class DispatchTest(unittest.TestCase):
         def test300_020ShouldCalculateNominalCase2(self):
         dict = {}
         dict['op'] = 'correct'
-        dict['lat'] = '89d20.1'
-        dict['long'] = '154d5.4'
-        dict['altitude'] = '37d17.4'
-        dict['assumedLat'] = '35d59.7'
+        dict['lat'] = '16d32.3'
+        dict['long'] = '95d41.6'
+        dict['altitude'] = '13d42.3'
+        dict['assumedLat'] = '-53d38.4'
         dict['assumedLong'] = '74d35.3'
-        self.assertEquals(dispatch.dispatch(dict)['correctedDistance'], '104')
-        self.assertEquals(dispatch.dispatch(dict)['correctedAzimuth'], '0d36.8')
+        self.assertEquals(dispatch.dispatch(dict)['correctedDistance'], '3950')
+        self.assertEquals(dispatch.dispatch(dict)['correctedAzimuth'], '164d42.9')
