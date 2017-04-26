@@ -502,8 +502,8 @@ class DispatchTest(unittest.TestCase):
         dict['long'] = '30d30.0'
         dict['altitude'] = '30d30.0'
         dict['assumedLat'] = '30d30.0'
-        dict['assumedLong'] = '74d35.3'
-        self.assertEquals(dispatch.dispatch(dict)['error'], 'invalid assumedLat')
+        dict['assumedLong'] = '400d30.0'
+        self.assertEquals(dispatch.dispatch(dict)['error'], 'invalid assumedLong')
 
 # UNIT TESTS
     def test400_010CalculateLHANominal(self):
