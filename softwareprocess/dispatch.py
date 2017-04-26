@@ -206,7 +206,7 @@ def correct(values):
     intermediateDistance = calculateIntermediateDistance(values['lat'], values['assumedLat'], localHourAngle)
     correctedAltitude = calculateCorrectedAltitude(intermediateDistance)
     correctedDistance = calculateCorrectedDistance(values['altitude'], correctedAltitude)
-    correctedAzimuth = calculateCorrectedAzimuth(values['lat'], values['assumedLat'], intermediateDistance, correctedDistance)
+    correctedAzimuth = calculateCorrectedAzimuth(values['lat'], values['assumedLat'], intermediateDistance)
     addToDict(values, 'correctedDistance', correctedDistance)
     addToDict(values, 'correctedAzimuth', correctedAzimuth)
 
