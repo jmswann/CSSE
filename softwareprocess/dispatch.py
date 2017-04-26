@@ -207,7 +207,7 @@ def correct(values):
     correctedAltitude = calculateCorrectedAltitude(intermediateDistance)
     correctedDistance = calculateCorrectedDistance(values['altitude'], correctedAltitude)
     correctedAzimuth = calculateCorrectedAzimuth(values['lat'], values['assumedLat'], intermediateDistance)
-    
+    #correctedDistanceArcMinutes = round(convertAngleStringToFloat(correctedDistance) * 60.0, 0)
     addToDict(values, 'correctedDistance', correctedDistance)
     addToDict(values, 'correctedAzimuth', correctedAzimuth)
 
