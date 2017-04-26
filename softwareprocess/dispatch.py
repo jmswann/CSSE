@@ -216,8 +216,9 @@ def calculateLocalHourAngle(longitude, assumedLongitude):
     assumedLongDeg = int(assumedLongitude.split('d')[0])
     assumedLongMin = float(assumedLongitude.split('d')[1])
     resultDeg = (longDeg + assumedLongDeg + int((longMin + assumedLongMin) / 60)) % 360
-
-    return 0
+    resultMin = (longMin + assumedLongMin) % 60
+    resultString = str(resultDeg) + 'd' + str(resultMin)
+    return resultString
 
 def calculateIntermediateDistance(latitude, assumedLatitude, LHA):
     return 0
