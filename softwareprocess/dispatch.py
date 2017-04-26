@@ -247,7 +247,7 @@ def validateValues(values):
     try:
         altitudeDeg = int(values['altitude'].split('d')[0])
     except ValueError:
-        addtoDict(values, 'error', 'invalid altitude')
+        addToDict(values, 'error', 'invalid altitude')
         return
     altitudeMin = float(values['altitude'].split('d')[1])
     if altitudeDeg > 90 or altitudeDeg < 0 or altitudeMin >= 60 or altitudeMin < 0:
