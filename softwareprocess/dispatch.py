@@ -208,7 +208,7 @@ def correct(values):
     correctedDistance = calculateCorrectedDistance(values['altitude'], correctedAltitude)
     correctedAzimuth = calculateCorrectedAzimuth(values['lat'], values['assumedLat'], intermediateDistance)
     correctedDistanceArcMinutes = int(round(convertAngleStringToFloat(correctedDistance) * 60.0, 0))
-    addToDict(values, 'correctedDistance', correctedDistanceArcMinutes)
+    addToDict(values, 'correctedDistance', str(correctedDistanceArcMinutes))
     addToDict(values, 'correctedAzimuth', correctedAzimuth)
 
 def calculateLocalHourAngle(longitude, assumedLongitude):
