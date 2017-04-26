@@ -262,10 +262,14 @@ def calculateCorrectedDistance(altitude, correctedAltitude):
 
 def calculateCorrectedAzimuth(latitude, assumedLatitude, intDistance, correctedDistance):
     latitudeDeg = convertAngleStringToFloat(latitude)
+    print latitudeDeg
     assumedLatitudeDeg = convertAngleStringToFloat(assumedLatitude)
+    print assumedLatitudeDeg
     correctedDistanceDeg = convertAngleStringToFloat(correctedDistance)
     result = math.acos((math.sin(math.radians(latitudeDeg)) - (math.sin(math.radians(assumedLatitudeDeg)) * intDistance)) /
                        (math.cos(math.radians(assumedLatitudeDeg)) * math.cos(math.asin(intDistance))))
+    result = math.degrees(result)
+    print result
     resultDeg = int(result)
     resultMin = round((abs(result) % 1) * 60.0, 1)
     resultString = str(resultDeg) + 'd' + str(resultMin)
