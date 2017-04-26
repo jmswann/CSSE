@@ -217,13 +217,16 @@ def correct(values):
 def validateValues(values):
     if 'lat' not in values or 'long' not in values or 'altitude' not in values or 'assumedLat' not in values or 'assumedLong' not in values:
         addToDict(values, 'error', 'mandatory information is missing')
+        return
     if 'correctedDistance' in values:
         addToDict(values, 'error', 'corrected distance already in dictionary')
+        return
     if 'correctedAzimuth' in values:
         addToDict(values, 'error', 'corrected azimuth already in dictionary')
+        return
     latDeg = int(values['lat'].split('d')[0])
-    #if latDeg >= 90 or latDeg <= -90:
-        #addToDict(values, 'error', 'invalid lat')
+    if latDeg >= 90 or latDeg <= -90:
+        addToDict(values, 'error', 'invalid lat')
 
 def calculateLocalHourAngle(longitude, assumedLongitude):
     longFloat = convertAngleStringToFloat(longitude)
