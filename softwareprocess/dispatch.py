@@ -207,6 +207,7 @@ def correct(values):
     correctedAltitude = calculateCorrectedAltitude(intermediateDistance)
     correctedDistance = calculateCorrectedDistance(values['altitude'], correctedAltitude)
     correctedAzimuth = calculateCorrectedAzimuth(values['lat'], values['assumedLat'], intermediateDistance)
+    
     addToDict(values, 'correctedDistance', correctedDistance)
     addToDict(values, 'correctedAzimuth', correctedAzimuth)
 
@@ -250,10 +251,8 @@ def calculateCorrectedAzimuth(latitude, assumedLatitude, intDistance):
     result = math.acos((math.sin(math.radians(latitudeDeg)) - (math.sin(math.radians(assumedLatitudeDeg)) * intDistance)) /
                        (math.cos(math.radians(assumedLatitudeDeg)) * math.cos(math.asin(intDistance))))
     result = math.degrees(result)
-    resultDeg = int(result)
-    resultMin = round((abs(result) % 1) * 60.0, 1)
-    resultString = str(resultDeg) + 'd' + str(resultMin)
-    return resultString
+    correctedAzimuthString = convertAngleFloatToString(result)
+    return correctedAzimuthString
 
 def addToDict(dict, key, value):
     dict[key] = value
