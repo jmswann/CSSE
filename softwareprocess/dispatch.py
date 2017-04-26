@@ -242,7 +242,7 @@ def calculateIntermediateDistance(latitude, assumedLatitude, lha):
 def calculateCorrectedAltitude(intDistance):
     correctedAltitudeRad = math.asin(intDistance)
     correctedAltitudeDeg = math.degrees(correctedAltitudeRad)
-    correctedAltitudeMin = math.round((correctedAltitudeDeg % 1) * 60.0, 1)
+    correctedAltitudeMin = round((correctedAltitudeDeg % 1) * 60.0, 1)
     correctedAltitudeDeg = int(correctedAltitudeDeg)
     result = str(correctedAltitudeDeg) + 'd' + str(correctedAltitudeMin)
     return result
