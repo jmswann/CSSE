@@ -220,13 +220,20 @@ def calculateLocalHourAngle(longitude, assumedLongitude):
     resultString = str(resultDeg) + 'd' + str(resultMin)
     return resultString
 
-def calculateIntermediateDistance(latitude, assumedLatitude, LHA):
+def calculateIntermediateDistance(latitude, assumedLatitude, lha):
     latFloat = float(latitude.split('d')[0])
     if latFloat > 0:
         latFloat += float(latitude.split('d')[1])
     else:
         latFloat -= float(latitude.split('d')[1])
-    return 0
+    assumedLatFloat = float(assumedLatitude.split('d')[0])
+    if assumedLatFloat > 0:
+        assumedLatFloat += float(assumedLatitude.split('d')[1])
+    else:
+        assumedLatFloat -= float(assumedLatitude.split('d')[1])
+    lhaFloat = float(lha.split('d')[0]) + float(lha.split('d')[1])
+    intDistance = (math.sin(latFloat) * math.sin(assumedLatFloat)) + (math.cos(latFloat) * math.cos(assumedLatFloat) * math.cos(lhaFloat))
+    return intDistance
 
 def calculateCorrectedAltitude(intDistance):
     return 0
