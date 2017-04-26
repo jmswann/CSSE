@@ -272,7 +272,7 @@ def calculateCorrectedAzimuth(latitude, assumedLatitude, intDistance):
     return resultString
 
 def addToDict(dict, key, value):
-    
+    return
 
 def convertAngleStringToFloat(angleAsString):
     if 'd' not in angleAsString:
