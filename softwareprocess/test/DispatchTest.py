@@ -475,6 +475,16 @@ class DispatchTest(unittest.TestCase):
         dict['assumedLong'] = '74d35.3'
         self.assertEquals(dispatch.dispatch(dict)['error'], 'invalid assumedLat')
 
+    def test300_170ShouldGiveErrorOnNonNumericAssumedLat1(self):
+        dict = {}
+        dict['op'] = 'correct'
+        dict['lat'] = '30d30.0'
+        dict['long'] = '30d30.0'
+        dict['altitude'] = '30d30.0'
+        dict['assumedLat'] = 'xd30.0'
+        dict['assumedLong'] = '74d35.3'
+        self.assertEquals(dispatch.dispatch(dict)['error'], 'invalid assumedLat')
+
 # UNIT TESTS
     def test400_010CalculateLHANominal(self):
         self.assertEquals(dispatch.calculateLocalHourAngle('95d41.6', '74d35.3'), '170d16.9')
