@@ -293,3 +293,4 @@ def convertAngleFloatToString(angleAsFloat):
     angleDegrees = int(angleAsFloat)
     angleMinutes = round((abs(angleAsFloat) % 1) * 60.0, 1)
     angleAsString = str(angleDegrees) + 'd' + str(angleMinutes)
+    return angleAsString
