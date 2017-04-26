@@ -225,7 +225,8 @@ def validateValues(values):
         addToDict(values, 'error', 'corrected azimuth already in dictionary')
         return
     latDeg = int(values['lat'].split('d')[0])
-    if latDeg >= 90 or latDeg <= -90:
+    latMin = float(values['lat'].split('d')[1])
+    if latDeg >= 90 or latDeg <= -90 or latMin >= 60 or latMin < 0:
         addToDict(values, 'error', 'invalid lat')
 
 def calculateLocalHourAngle(longitude, assumedLongitude):
