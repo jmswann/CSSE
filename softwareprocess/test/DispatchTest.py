@@ -326,6 +326,15 @@ class DispatchTest(unittest.TestCase):
         self.assertEquals(dispatch.dispatch(dict)['correctedDistance'], '3950')
         self.assertEquals(dispatch.dispatch(dict)['correctedAzimuth'], '164d42.9')
 
+    def test300_030ShouldGiveErrorOnMissingElement(self):
+        dict = {}
+        dict['op'] = 'correct'
+        dict['long'] = '95d41.6'
+        dict['altitude'] = '13d42.3'
+        dict['assumedLat'] = '-53d38.4'
+        dict['assumedLong'] = '74d35.3'
+        self.assertEquals(dispatch.dispatch(dict)['error'], 'mandatory information is missing')
+
 # UNIT TESTS
     def test400_010CalculateLHANominal(self):
         self.assertEquals(dispatch.calculateLocalHourAngle('95d41.6', '74d35.3'), '170d16.9')
