@@ -225,6 +225,7 @@ def validateValues(values):
         addToDict(values, 'error', 'corrected azimuth already in dictionary')
         return
     latDeg = latMin = 0
+    longDeg = longMin = 0
     try:
         latDeg = int(values['lat'].split('d')[0])
         latMin = float(values['lat'].split('d')[1])
@@ -234,7 +235,10 @@ def validateValues(values):
     if latDeg >= 90 or latDeg <= -90 or latMin >= 60 or latMin < 0:
         addToDict(values, 'error', 'invalid lat')
         return
-    longDeg = int(values['long'].split('d')[0])
+    try:
+        longDeg = int(values['long'].split('d')[0])
+    except ValueError:
+        addToDict(values, 'error', 'invalid long')
     longMin = float(values['long'].split('d')[1])
     if longDeg >= 360 or longDeg < 0 or longMin >= 60 or longMin < 0:
         addToDict(values, 'error', 'invalid long')
