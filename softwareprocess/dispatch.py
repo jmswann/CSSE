@@ -286,4 +286,4 @@ def convertAngleStringToFloat(angleAsString):
         angleDegrees = int(angleDegreesString) + float(angleMinutesString) / 60.0
     except ValueError:
         return -1
-    return angleDegrees % 360
+    return angleDegrees
