@@ -522,7 +522,7 @@ class DispatchTest(unittest.TestCase):
         dict['long'] = '30d30.0'
         dict['altitude'] = '30d30.0'
         dict['assumedLat'] = '30d30.0'
-        dict['assumedLong'] = 'xd30.0
+        dict['assumedLong'] = 'xd30.0'
         self.assertEquals(dispatch.dispatch(dict)['error'], 'invalid assumedLong')
 
 # UNIT TESTS
