@@ -264,11 +264,11 @@ def validateValues(values):
     if assumedLatDeg >= 90 or assumedLatDeg <= -90 or assumedLatMin >= 60 or assumedLatMin < 0:
         addToDict(values, 'error', 'invalid assumedLat')
         return
-    #try:
-    assumedLongDeg = int(values['assumedLong'].split('d')[0])
-    #except ValueError:
-     #   addToDict(values, 'error', 'invalid assumedLong')
-      #  return
+    try:
+        assumedLongDeg = int(values['assumedLong'].split('d')[0])
+    except ValueError:
+        addToDict(values, 'error', 'invalid assumedLong')
+        return
     assumedLongMin = float(values['assumedLong'].split('d')[1])
     if assumedLongDeg < 0 or assumedLongDeg >= 360 or assumedLongMin >= 60 or assumedLongMin < 0:
         addToDict(values, 'error', 'invalid assumedLong')
