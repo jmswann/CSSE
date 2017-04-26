@@ -338,4 +338,4 @@ class DispatchTest(unittest.TestCase):
 
     def test700_010CalculateCorrectedDistanceNominal(self):
         self.assertEquals(dispatch.calculateCorrectedDistance('13d42.3', '-52d7.8'), -3950)
-        
+
