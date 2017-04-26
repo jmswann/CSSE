@@ -224,11 +224,13 @@ def validateValues(values):
     if 'correctedAzimuth' in values:
         addToDict(values, 'error', 'corrected azimuth already in dictionary')
         return
+    latDeg = latMin = 0
     try:
         latDeg = int(values['lat'].split('d')[0])
-        latMin = float(values['lat'].split('d')[1])
+
     except ValueError:
         addToDict(values, 'error', 'invalid lat')
+    latMin = float(values['lat'].split('d')[1])
     if latDeg >= 90 or latDeg <= -90 or latMin >= 60 or latMin < 0:
         addToDict(values, 'error', 'invalid lat')
 
