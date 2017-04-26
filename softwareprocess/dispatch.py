@@ -237,9 +237,9 @@ def validateValues(values):
         return
     try:
         longDeg = int(values['long'].split('d')[0])
+        longMin = float(values['long'].split('d')[1])
     except ValueError:
         addToDict(values, 'error', 'invalid long')
-    longMin = float(values['long'].split('d')[1])
     if longDeg >= 360 or longDeg < 0 or longMin >= 60 or longMin < 0:
         addToDict(values, 'error', 'invalid long')
 
