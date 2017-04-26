@@ -256,10 +256,10 @@ def validateValues(values):
         return
     try:
         assumedLatDeg = int(values['assumedLat'].split('d')[0])
+        assumedLatMin = float(values['assumedLat'].split('d')[1])
     except ValueError:
         addToDict(values, 'error', 'invalid assumedLat')
         return
-    assumedLatMin = float(values['assumedLat'].split('d')[1])
     if assumedLatDeg >= 90 or assumedLatDeg <= -90 or assumedLatMin >= 60 or assumedLatMin < 0:
         addToDict(values, 'error', 'invalid assumedLat')
         return
