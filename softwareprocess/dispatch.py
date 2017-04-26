@@ -261,7 +261,21 @@ def calculateCorrectedDistance(altitude, correctedAltitude):
     return resultString
 
 def calculateCorrectedAzimuth(latitude, assumedLatitude, intDistance, correctedDistance):
+    latitudeDeg = convertAngleStringToFloat(latitude)
+    assumedLatitudeDeg = convertAngleStringToFloat(assumedLatitude)
+    
     return 0
 
 def addToDict(dict, key, value):
     dict[key] = value
+
+def convertAngleStringToFloat(angleAsString):
+    if 'd' not in angleAsString:
+        return -1
+    angleDegreesString = angleAsString.split('d')[0]
+    angleMinutesString = angleAsString.split('d')[1]
+    try:
+        angleDegrees = int(angleDegreesString) + float(angleMinutesString) / 60.0
+    except ValueError:
+        return -1
+    return angleDegrees
