@@ -415,7 +415,7 @@ class DispatchTest(unittest.TestCase):
         dict['assumedLong'] = '74d35.3'
         self.assertEquals(dispatch.dispatch(dict)['error'], 'invalid long')
 
-    def test300_100ShouldGiveErrorOnOutOfBoundsAltitude1(self):
+    def test300_110ShouldGiveErrorOnOutOfBoundsAltitude1(self):
         dict = {}
         dict['op'] = 'correct'
         dict['lat'] = '30d30.0'
@@ -423,7 +423,7 @@ class DispatchTest(unittest.TestCase):
         dict['altitude'] = '100d30.0'
         dict['assumedLat'] = '-53d38.4'
         dict['assumedLong'] = '74d35.3'
-        self.assertEquals(dispatch.dispatch(dict)['error'], 'invalid long')
+        self.assertEquals(dispatch.dispatch(dict)['error'], 'invalid altitude')
 
 # UNIT TESTS
     def test400_010CalculateLHANominal(self):
