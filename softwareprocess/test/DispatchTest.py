@@ -328,4 +328,7 @@ class DispatchTest(unittest.TestCase):
 
 # UNIT TESTS
     def test400_010CalculateLHANominal(self):
-        self.assertEquals(dispatch.calculateLocalHourAngle('95d41.6', '74d35.3'), '170d17.0')
+        self.assertEquals(dispatch.calculateLocalHourAngle('95d41.6', '74d35.3'), '170d16.9')
+
+    def test500_010CalculateIntermediateDistanceNominal(self):
+        self.assertEquals(dispatch.calculateIntermediateDistance())

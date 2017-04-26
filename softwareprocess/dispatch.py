@@ -221,6 +221,11 @@ def calculateLocalHourAngle(longitude, assumedLongitude):
     return resultString
 
 def calculateIntermediateDistance(latitude, assumedLatitude, LHA):
+    latFloat = float(latitude.split('d')[0])
+    if latFloat > 0:
+        latFloat += float(latitude.split('d')[1])
+    else:
+        latFloat -= float(latitude.split('d')[1])
     return 0
 
 def calculateCorrectedAltitude(intDistance):
