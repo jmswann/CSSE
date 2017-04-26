@@ -264,7 +264,8 @@ def validateValues(values):
         addToDict(values, 'error', 'invalid assumedLat')
         return
     assumedLongDeg = int(values['assumedLong'].split('d')[0])
-    if assumedLongDeg < 0 or assumedLongDeg >= 360:
+    assumedLongMin = float(values['assumedLong'].split('d')[1])
+    if assumedLongDeg < 0 or assumedLongDeg >= 360 or assumedLongMin >= 60 or assumedLongMin < 0:
         addToDict(values, 'error', 'invalid assumedLong')
 
 
