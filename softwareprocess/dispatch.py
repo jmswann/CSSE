@@ -264,7 +264,7 @@ def calculateCorrectedAzimuth(latitude, assumedLatitude, intDistance, correctedD
     latitudeDeg = convertAngleStringToFloat(latitude)
     assumedLatitudeDeg = convertAngleStringToFloat(assumedLatitude)
     correctedDistanceDeg = convertAngleStringToFloat(correctedDistance)
-    result = math.acos((math.sin(latitudeDeg) - math.sin(assumedLatitudeDeg)) / (math.cos(assumedLatitudeDeg) * math.cos(correctedDistanceDeg)))
+    result = math.acos((math.sin(latitudeDeg) - ))
     resultDeg = int(result)
     resultMin = round((abs(result) % 1) * 60.0, 1)
     resultString = str(resultDeg) + 'd' + str(resultMin)
