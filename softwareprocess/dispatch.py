@@ -243,6 +243,7 @@ def validateValues(values):
         longMin = float(values['long'].split('d')[1])
     except ValueError:
         addToDict(values, 'error', 'invalid long')
+        return
     if longDeg >= 360 or longDeg < 0 or longMin >= 60 or longMin < 0:
         addToDict(values, 'error', 'invalid long')
         return
@@ -252,7 +253,7 @@ def validateValues(values):
     except ValueError:
         addToDict(values, 'error', 'invalid altitude')
         return
-    if altitudeDeg > 90 or altitudeDeg < 0 or altitudeMin >= 60 or altitudeMin < 0:
+    if altitudeDeg >= 90 or altitudeDeg <= 0 or altitudeMin >= 60 or altitudeMin < 0:
         addToDict(values, 'error', 'invalid altitude')
         return
     try:
@@ -266,10 +267,10 @@ def validateValues(values):
         return
     try:
         assumedLongDeg = int(values['assumedLong'].split('d')[0])
+        assumedLongMin = float(values['assumedLong'].split('d')[1])
     except ValueError:
         addToDict(values, 'error', 'invalid assumedLong')
         return
-    assumedLongMin = float(values['assumedLong'].split('d')[1])
     if assumedLongDeg < 0 or assumedLongDeg >= 360 or assumedLongMin >= 60 or assumedLongMin < 0:
         addToDict(values, 'error', 'invalid assumedLong')
 
