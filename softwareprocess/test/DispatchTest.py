@@ -535,7 +535,7 @@ class DispatchTest(unittest.TestCase):
         dict['assumedLong'] = '30dy.y'
         self.assertEquals(dispatch.dispatch(dict)['error'], 'invalid assumedLong')
 
-# UNIT TESTS
+# ----UNIT TESTS
     def test400_010CalculateLHANominal(self):
         self.assertEquals(dispatch.calculateLocalHourAngle('95d41.6', '74d35.3'), '170d16.9')
 
