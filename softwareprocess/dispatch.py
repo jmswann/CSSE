@@ -229,6 +229,21 @@ def validateValues(values):
     altitudeDeg = altitudeMin = 0
     assumedLatDeg = assumedLatMin = 0
     assumedLongDeg = assumedLatMin = 0
+    if 'd' not in values['lat']:
+        addToDict(values, 'error', 'invalid lat')
+        return
+    elif 'd' not in values['long']:
+        addToDict(values, 'error', 'invalid long')
+        return
+    elif 'd' not in values['altitude']:
+        addToDict(values, 'error', 'invalid altitude')
+        return
+    elif 'd' not in values['assumedLat']:
+        addToDict(values, 'error', 'invalid assumedLat')
+        return
+    elif 'd' not in values['assumedLong']:
+        addToDict(values, 'error', 'invalid assumedLong')
+        return
     try:
         latDeg = int(values['lat'].split('d')[0])
         latMin = float(values['lat'].split('d')[1])
@@ -274,7 +289,6 @@ def validateValues(values):
     if assumedLongDeg < 0 or assumedLongDeg >= 360 or assumedLongMin >= 60 or assumedLongMin < 0:
         addToDict(values, 'error', 'invalid assumedLong')
 
-
 def calculateLocalHourAngle(longitude, assumedLongitude):
     longFloat = convertAngleStringToFloat(longitude)
     assumedLongFloat = convertAngleStringToFloat(assumedLongitude)
@@ -293,9 +307,6 @@ def calculateIntermediateDistance(latitude, assumedLatitude, lha):
 def calculateCorrectedAltitude(intDistance):
     correctedAltitudeRad = math.asin(intDistance)
     correctedAltitudeDeg = math.degrees(correctedAltitudeRad)
-    #correctedAltitudeMin = round((abs(correctedAltitudeDeg) % 1) * 60.0, 1)
-    #correctedAltitudeDeg = int(correctedAltitudeDeg)
-    #result = str(correctedAltitudeDeg) + 'd' + str(correctedAltitudeMin)
     correctedAltitudeString = convertAngleFloatToString(correctedAltitudeDeg)
     return correctedAltitudeString
 
